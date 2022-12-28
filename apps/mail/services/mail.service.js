@@ -4,21 +4,35 @@ import { storageService } from '../../../services/async-storage.service.js';
 const EMAIL_KEY = 'emailDB'
 _createMails()
 
+export const mailService = {
+    query,
+    get,
+    remove,
+    save,
+    getEmptyMail,
+    getDefaultFilter
+}
+
+
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Mahatma Appsus'
 }
 
 // filterBy = getDefaultFilter()
-function query() {
+function query(filterBy) {
+    console.log(filterBy)
     return storageService.query(EMAIL_KEY)
         .then(mails => {
-            // if (filterBy.txt) {
-            //     const regex = new RegExp(filterBy.txt, 'i')
-            //     cars = cars.filter(car => regex.test(car.vendor))
-            // }
-            // if (filterBy.minSpeed) {
-            //     cars = cars.filter(car => car.maxSpeed >= filterBy.minSpeed)
+            filterBy.subject = filterBy.txt
+            console.log(filterBy)
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.body))
+            }
+            // if (filterBy.subject) {
+            //     const regex = new RegExp(filterBy.subject, 'i')
+            //     mails = mails.filter(mail => regex.test(mail.subject))
             // }
             return mails
         })
@@ -47,10 +61,23 @@ function remove(mailId) {
 
 function save(mail) {
     if (mail.id) {
+        console.log('save')
         return storageService.put(EMAIL_KEY, mail)
     } else {
         return storageService.post(EMAIL_KEY, mail)
     }
+}
+
+function getEmptyMail(subject = 'general', body = 'im an empty mail!') {
+    const mail = {
+        subject,
+        body,
+        isRead: (Math.random() > 0.5) ? false : true,
+        isStarred: (Math.random() > 0.5) ? false : true,
+        sentAt: Date.now(),
+        to: 'momo@momo.com'
+    }
+    return mail
 }
 
 
@@ -58,10 +85,17 @@ function _createMails() {
     let mails = utilService.loadFromStorage(EMAIL_KEY)
     if (!mails || !mails.length) {
         mails = []
-        mails.push(_createMail('test1', 'go mail!'))
-        mails.push(_createMail('test2', 'wowowow'))
+        mails.push(_createMail('test1', 'Amir sela,thank you for your order from Hazeltons USA. If you have questions about your order, you can email us at csgiftgp.com.   Your shipping confirmation is below. Thank you again for your business'))
+        mails.push(_createMail('test2', 'hello how are you? im gonna talk and talk and talk blablalbalbaslbalbalalala'))
         mails.push(_createMail('test3', 'oh yeah!'))
         mails.push(_createMail('test4', 'lets go mail!'))
+        mails.push(_createMail('test1', 'Amir sela,thank you for your order from Hazeltons USA. If you have questions about your order, you can email us at csgiftgp.com.   Your shipping confirmation is below. Thank you again for your business'))
+        mails.push(_createMail('test2', 'hello how are you? im gonna talk and talk and talk blablalbalbaslbalbalalala'))
+        mails.push(_createMail('test3', 'oh yeah!'))
+        mails.push(_createMail('test4', 'lets go mail!'))
+        mails.push(_createMail('test1', 'Amir sela,thank you for your order from Hazeltons USA. If you have questions about your order, you can email us at csgiftgp.com.   Your shipping confirmation is below. Thank you again for your business'))
+        mails.push(_createMail('test2', 'hello how are you? im gonna talk and talk and talk blablalbalbaslbalbalalala'))
+
         console.log(mails)
         utilService.saveToStorage(EMAIL_KEY, mails)
     }
@@ -69,16 +103,22 @@ function _createMails() {
 
 function _createMail(subject, body) {
     const mail = getEmptyMail(subject, body)
+    mail.id = utilService.makeId()
     return mail
 }
 
-function getEmptyMail(subject = 'general', body = 'im an empty mail!') {
-    const mail = {
-        subject,
-        body,
-        isRead: false,
-        sentAt: Date.now(),
-        to: 'momo@momo.com'
+
+function getDefaultFilter() {
+    const criteria = {
+        status: '',
+        subject: '',
+        body: '', // no need to support complex text search
+        isRead: '', // (optional property, if missing: show all)
+        isStared: '', // (optional property, if missing: show all)
+        lables: [] // has any of the labels
     }
-    return mail
+
+    return criteria
 }
+
+

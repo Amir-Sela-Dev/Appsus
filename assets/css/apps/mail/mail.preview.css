@@ -1,0 +1,83 @@
+.mail-row {
+    align-items: center;
+    border-block: 0.5px solid #e1e7ee;
+    border-collapse: collapse;
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+.mail-row:hover {
+    /* outline-block: 1.8px solid #e1e7ee; */
+    outline: 2px solid #e1e7ee;
+}
+
+.mail-row:hover * {
+    opacity: 1;
+}
+
+.read {
+    background-color: #f2f6fc;
+    font-weight: 100;
+}
+
+.unRead {
+    background-color: white;
+
+}
+
+.title {
+    padding-inline-start: 20px;
+}
+
+.time {
+    padding-inline-start: 10px;
+}
+
+
+
+
+.star {
+    margin-inline-start: 5px;
+    text-align: center;
+}
+
+.star:hover {
+    background-color: rgba(186, 186, 186, 0.689);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    height: 20px;
+    width: 20px;
+}
+
+.starred {
+    background-image: url("/assets/img/starred.png");
+}
+
+
+.unStarred {
+    background-image: url("/assets/img/unstarred.png");
+}
+
+.trash {
+    background-image: url("/assets/img/trash.png");
+    opacity: 0;
+}
+
+.close-envelop {
+    background-image: url("/assets/img/close-envelop.png");
+    opacity: 0;
+    background-color: white;
+
+}
+
+.open-envelop {
+    background-image: url("/assets/img/open-envelop.png");
+    opacity: 0;
+}

@@ -24,6 +24,8 @@
 /* @import './apps/mail/cmps/mail-list.css'; */
 
 
+/* mail app */
+@import './apps/mail/mail.preview.css';
 /* notes */
 
 @import './apps/notes/main-notes.css';
