@@ -1,0 +1,50 @@
+.home .hero {
+    height: 23.4375rem;
+    background-image: url("/assets/img/home-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.home-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-nav-container>* {
+    margin-inline: 20px;
+}
+
+.home .mail {
+    height: 10.4375rem;
+    width: 10.4375rem;
+    background-image: url("/assets/img/mail-logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.home .notes {
+    height: 10.4375rem;
+    width: 10.4375rem;
+
+    background-image: url("/assets/img/notes-logo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.home .book-shop {
+    height: 10.4375rem;
+    width: 10.4375rem;
+
+    background-image: url("/assets/img/book-shop-logo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
