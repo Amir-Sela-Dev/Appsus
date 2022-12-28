@@ -1,25 +1,23 @@
 import { noteService } from "../services/note.service.js"
+const { useEffect, useRef } = React
 
 export function NoteAdd({ onAddNote }) {
+    const inputEl = useRef()
+    let valueToAdd
 
-    function handleChange({ target }) {
+    useEffect(() => {
+        addNoteByClick()
+
+        return removeBodyEv()
+    }, [])
+
+    function getValue({ target }) {
         let { value } = target
         if (!value) return
-        const processChange = debounce(() => addNote(value))
-        processChange()
-    }
+        valueToAdd = value
 
-    function debounce(func) {
-        let timer;
-        return (...args) => {
-            clearTimeout(timer)
-            timer = setTimeout(() => { func.apply(this, args) }, 3000)
-        }
+        // addNote(value)
     }
-    function saveInput() {
-        console.log('Saving data')
-    }
-
 
     function addNote(txt) {
         const newNote = noteService.getEmptyNote()
@@ -27,6 +25,25 @@ export function NoteAdd({ onAddNote }) {
         noteService.save(newNote).then(onAddNote)
     }
 
+    document.body.style.minHeight = '100vh'
+    document.body.addEventListener('click', addNoteByClick)
+
+    function removeBodyEv() {
+        document.body.removeEventListener('click', addNoteByClick)
+    }
+
+    function addNoteByClick() {
+        if (!valueToAdd) return
+        let isClicked = true
+        if (isClicked) {
+            addNote(valueToAdd)
+            valueToAdd = ''
+            inputEl.current.value = ''
+        }
+        isClicked = false
+    }
+
+    console.log(valueToAdd)
     return <section className="note-add">
         <form className="search-wrap" >
 
@@ -37,7 +54,8 @@ export function NoteAdd({ onAddNote }) {
                 className="search-input"
                 name="note-txt"
                 placeholder="Take a note.."
-                onChange={handleChange}
+                onChange={getValue}
+                ref={inputEl}
             />
 
         </form>
