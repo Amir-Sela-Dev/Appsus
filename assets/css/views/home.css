@@ -19,7 +19,7 @@
 
 .home .mail {
     height: 10.4375rem;
-    width: 10.4375rem;
+    width: 14.4375rem;
     background-image: url("/assets/img/mail-logo.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,10 +28,10 @@
 }
 
 .home .notes {
-    height: 10.4375rem;
-    width: 10.4375rem;
+    height: 8.4375rem;
+    width: 8.4375rem;
 
-    background-image: url("/assets/img/notes-logo.jpg");
+    background-image: url("/assets/img/notes-logo.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -42,7 +42,7 @@
     height: 10.4375rem;
     width: 10.4375rem;
 
-    background-image: url("/assets/img/book-shop-logo.jpg");
+    background-image: url("/assets/img/books.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
