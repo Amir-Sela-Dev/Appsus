@@ -6,28 +6,10 @@ export const noteService = {
     query,
     createNote,
     removeNote,
-    changeNoteBgColor,
-    updateNoteContent,
-    togglePinnedNote,
-    toggleDone,
-    addTodo,
-    removeTodo,
-    updateTodoContent
 }
 
 const STORAGE_KEY = 'notesDB'
 createNotes()
-
-function toggleDone(todoId, noteId) {
-    let notes = _loadNotesFromStorage()
-    let noteIdx = notes.findIndex(note => note.id === noteId)
-    let todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId)
-    let isDoneStatus = notes[noteIdx].info.todos[todoIdx].isDone
-    notes[noteIdx].info.todos[todoIdx].isDone = !isDoneStatus
-    _saveNotesToStorage(notes)
-    return Promise.resolve()
-
-}
 
 function query(filterChar) {
 
@@ -49,42 +31,6 @@ function query(filterChar) {
     return Promise.resolve({ pinnedNotes, unPinnedNotes })
 }
 
-function updateTodoContent(todoId, noteId, value) {
-    let notes = _loadNotesFromStorage()
-    let noteIdx = notes.findIndex(note => note.id === noteId)
-    const todoIdx = notes[noteIdx].info.todos.findIndex(todo => todo.id === todoId)
-    notes[noteIdx].info.todos[todoIdx].txt = value
-    _saveNotesToStorage(notes)
-    return Promise.resolve()
-}
-
-function removeTodo(todoId, noteId) {
-    let notes = _loadNotesFromStorage()
-    let noteIdx = notes.findIndex(note => note.id === noteId)
-
-    notes[noteIdx].info.todos = notes[noteIdx].info.todos.filter(todo => todo.id !== todoId)
-    _saveNotesToStorage(notes)
-    return Promise.resolve()
-}
-
-
-function addTodo(value, noteId) {
-    let notes = _loadNotesFromStorage()
-    let noteIdx = notes.findIndex(note => note.id === noteId)
-    notes[noteIdx].info.todos.unshift(_createTodo(value))
-    _saveNotesToStorage(notes)
-    return Promise.resolve()
-}
-
-function _createTodo(txt) {
-    return {
-        id: utilService.makeId(),
-        txt,
-        isDone: false,
-    }
-}
-
-
 function removeNote(noteId) {
     let notes = _loadNotesFromStorage()
 
@@ -92,23 +38,6 @@ function removeNote(noteId) {
     _saveNotesToStorage(notes)
     return Promise.resolve()
 
-}
-
-
-function togglePinnedNote(noteId, isPinned) {
-    const notes = _loadNotesFromStorage()
-    const noteIdx = notes.findIndex(note => note.id === noteId)
-    notes[noteIdx].isPinned = isPinned
-    _saveNotesToStorage(notes)
-    return Promise.resolve()
-}
-
-function changeNoteBgColor(color, noteId) {
-    const notes = _loadNotesFromStorage()
-    let noteIdx = notes.findIndex(note => note.id === noteId)
-    notes[noteIdx].style.backgroundColor = color
-    _saveNotesToStorage(notes)
-    return Promise.resolve()
 }
 
 function createNote(value, type) {
@@ -133,33 +62,6 @@ function createNote(value, type) {
     _saveNotesToStorage(notes)
     return Promise.resolve()
 
-}
-
-
-
-function updateNoteContent(noteId, noteType, value) {
-    const notes = _loadNotesFromStorage()
-    const noteIdx = notes.findIndex(note => note.id === noteId)
-    switch (noteType) {
-        case 'note-txt':
-            notes[noteIdx].info.txt = value
-    }
-
-    _saveNotesToStorage(notes)
-    return Promise.resolve(notes[noteIdx])
-}
-
-function getInfoKeyByType(type) {
-    switch (type) {
-        case 'note-img':
-            return 'url'
-        case 'note-txt':
-            return 'txt'
-        case 'note-todos':
-            return 'title'
-        case 'note-video':
-            return 'urlId'
-    }
 }
 
 function createNotes() {
@@ -224,13 +126,4 @@ function createNotes() {
 
     }
     _saveNotesToStorage(notes)
-}
-
-// Locals Functions
-function _saveNotesToStorage(data) {
-    storageService.saveToStorage(STORAGE_KEY, data)
-}
-
-function _loadNotesFromStorage() {
-    return storageService.loadFromStorage(STORAGE_KEY)
 }
