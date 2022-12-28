@@ -8,7 +8,8 @@ export const noteService = {
     getDefaultFilter,
     remove,
     save,
-    get
+    get,
+    getEmptyNote
 }
 
 const NOTE_KEY = 'notesDB'
@@ -40,14 +41,28 @@ function remove(noteId) {
 
 function get(noteId) {
     return storageService.get(NOTE_KEY, noteId)
-
 }
 
-function save(car) {
-    if (car.id) {
-        return storageService.put(CAR_KEY, car)
+function save(note) {
+    console.log(note);
+    if (note.id) {
+        return storageService.put(NOTE_KEY, note)
     } else {
-        return storageService.post(CAR_KEY, car)
+        return storageService.post(NOTE_KEY, note)
+    }
+}
+
+function getEmptyNote() {
+    return {
+        id: "",
+        type: "note-txt",
+        isPinned: false,
+        info: {
+            txt: ""
+        },
+        style: {
+            backgroundColor: "#fbbc04"
+        }
     }
 }
 

@@ -3,6 +3,7 @@
 }
 
 .note {
+    position: relative;
     width: 240px;
     min-height: 120px;
     /* margin: 16px; */
@@ -57,6 +58,25 @@
 
 .note-btn {
     background-color: transparent;
-    border-radius: 2rem;
-    border: 1px solid rgb(0 0 0 / 10%);
+    border: none;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+.pin {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.note-preview:hover .tol-bar {
+    opacity: 1;
+    transition: .4s;
+}
+
+.tol-bar-space {
+    min-height: 25px;
 }

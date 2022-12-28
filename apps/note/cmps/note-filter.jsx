@@ -9,12 +9,6 @@ export function NoteFilter({ onSetFilter }) {
         onSetFilter(filterByToEdit)
     }, [filterByToEdit])
 
-    // function handleChange({ target }) {
-    //     let { value, name: field, type } = target
-    //     value = (type === 'number') ? +value : value
-    //     setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
-    // }
-
     function handleChange({ target }) {
         let { value, type, name: field } = target
         value = type === 'number' ? +value : value
@@ -32,7 +26,6 @@ export function NoteFilter({ onSetFilter }) {
         onSetFilter(filterByToEdit)
     }
 
-    console.log(filterByToEdit)
     return <section className="note-filter">
         <form className="search-wrap" onSubmit={onSubmitFilter}>
 
