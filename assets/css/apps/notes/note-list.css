@@ -1,0 +1,62 @@
+.main-layout {
+    margin: 0 82px
+}
+
+.note {
+    width: 240px;
+    min-height: 120px;
+    /* margin: 16px; */
+    font-family: Product, arial, sans-serif;
+    font-size: 15px;
+    background-color: #fff;
+    /* border-color: #e0e0e0; */
+    border: 1px solid #e0e0e0;
+    background-clip: padding-box;
+    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+    transition-timing-function: ease-in;
+    transition-duration: 0.218s;
+    border-radius: 8px;
+}
+
+.shalom {
+    font-family: Product;
+}
+
+.note-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    gap: 16px;
+}
+
+.note-title {
+    letter-spacing: .00625em;
+    font-family: Product-Bold, Roboto, Arial, sans-serif;
+    font-size: 1.25rem;
+    /* font-weight: 500; */
+    line-height: 1.5rem;
+    margin: 0;
+}
+
+.note-txt-wrap {
+    margin: 0
+}
+
+.note-txt {
+    letter-spacing: .01428571em;
+    font-family: Product, Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.note-preview {
+    padding: 12px 16px;
+}
+
+.note-btn {
+    background-color: transparent;
+    border-radius: 2rem;
+    border: 1px solid rgb(0 0 0 / 10%);
+}

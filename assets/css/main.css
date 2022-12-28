@@ -26,3 +26,8 @@
 
 /* mail app */
 @import './apps/mail/mail.preview.css';
+/* notes */
+
+@import './apps/notes/main-notes.css';
+@import './apps/notes/note-list.css';
+@import './apps/notes/note-filter.css';
