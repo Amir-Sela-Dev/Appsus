@@ -33,20 +33,21 @@ export function NoteFilter({ onSetFilter }) {
     }
 
     console.log(filterByToEdit)
-    const fieldVal = filterByToEdit.info
     return <section className="note-filter">
-        <form onSubmit={onSubmitFilter}>
-            <label htmlFor="info">Search </label>
+        <form className="search-wrap" onSubmit={onSubmitFilter}>
+
+            <label className=".search-input-label"
+                htmlFor="info"></label>
             <input type="text"
                 id="info"
+                className="search-input"
                 name="info"
                 placeholder="search.."
-                // value={fieldVal.txt}
                 onChange={handleChange}
             />
-
-            <button>Filter notes</button>
+            {/* <button>Filter notes</button> */}
         </form>
+
 
     </section>
 }

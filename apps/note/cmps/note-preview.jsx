@@ -1,12 +1,50 @@
-export function NotePreview({ note }) {
+import { noteService } from "../services/note.service.js"
+
+const { useState } = React
+
+export function NotePreview({ note, onRemoveNote }) {
     const { info } = note
     const { isPinned } = note
+    const [updateNoteDisplay, setUpdateNoteDisplay] = useState()
     let pinned = 'No'
+
+    function getTitleFromBlur(e) {
+        console.log(e)
+        console.log(e.target)
+        console.log(e.target.id)
+        console.log(e.target.innerText)
+        const newTxt = e.target.innerText
+        // noteService.get(noteId)
+        //     .then(note => {
+        //         note.info.txt = newTxt
+        //         save(note).then((note) => setUpdateNoteDisplay(note))
+        //     })
+
+    }
+
+    function getTextFromBlur(e) {
+        console.log(e)
+        console.log(e.target)
+        console.log(e.target.id)
+        console.log(e.target.innerText)
+    }
 
     if (isPinned) pinned = "Yes"
     return <article className="note-preview">
-        <h2>Note title {info.txt}</h2>
-        <h3>Pinned {pinned}</h3>
-        <h3>Type {note.type}</h3>
+        <p className="note-title" id={note.id} onBlur={getTitleFromBlur} contentEditable>{info.txt}</p>
+        <p contentEditable id={note.id} onBlur={getTextFromBlur}
+            className="note-txt">
+            Pinned {pinned}
+            <br></br>
+            Type {note.type}
+        </p>
+
+        <div className="tool-bar" role="toolbar">
+            <button className="note-btn color" >Color</button>
+            <button className="note-btn image">Image</button>
+
+            <button className="note-btn delete" onClick={() => onRemoveNote(note.id)}>x</button>
+        </div>
+
     </article>
 }

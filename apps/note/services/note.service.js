@@ -5,7 +5,8 @@ import { utilService } from '../../../services/util.service.js'
 
 export const noteService = {
     query,
-    getDefaultFilter
+    getDefaultFilter,
+    remove
 }
 
 const NOTE_KEY = 'notesDB'
@@ -31,6 +32,18 @@ function query(filterBy = getDefaultFilter()) {
         })
 }
 
+function remove(noteId) {
+    return storageService.remove(NOTE_KEY, noteId)
+}
+
+function save(car) {
+    if (car.id) {
+        return storageService.put(CAR_KEY, car)
+    } else {
+        return storageService.post(CAR_KEY, car)
+    }
+}
+
 function getDefaultFilter() {
 
     return { "info.txt": '', type: '', isPinned: '' }
@@ -41,6 +54,54 @@ function createNotes() {
     if (!notes || !notes.length) {
 
         notes = [
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    txt: "Amirs team"
+                },
+                style: {
+                    backgroundColor: "#fbbc04"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    txt: "Amirs team"
+                },
+                style: {
+                    backgroundColor: "#fbbc04"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    txt: "Amirs team"
+                },
+                style: {
+                    backgroundColor: "#fbbc04"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    txt: "Amirs team"
+                },
+                style: {
+                    backgroundColor: "#fbbc04"
+                }
+
+            },
             {
                 id: utilService.makeId(),
                 type: "note-txt",

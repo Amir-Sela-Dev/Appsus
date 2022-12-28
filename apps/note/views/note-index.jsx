@@ -24,11 +24,21 @@ export function NoteIndex() {
         setFilterBy(filterBy)
     }
 
+    function onRemoveNote(noteId) {
+        noteService.remove(noteId).then(() => {
+            const updatedNotes = notes.filter(note => note.id !== noteId)
+            setNotes(updatedNotes)
+        })
+            .catch((err) => {
+                console.log('Could not remove note', err)
+            })
+    }
+
     console.log(notes)
     return <section className="note-index">
         <div className="main-layout">
             <NoteFilter onSetFilter={onSetFilter} />
-            <NoteList notes={notes} />
+            <NoteList notes={notes} onRemoveNote={onRemoveNote} />
         </div>
     </section>
 
