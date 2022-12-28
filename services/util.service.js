@@ -6,6 +6,8 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    saveToStorage,
+    loadFromStorage
 }
 
 function makeId(length = 6) {
