@@ -25,3 +25,6 @@
 
 
 /* notes */
+
+@import './apps/notes/note-index.css';
+@import './apps/notes/note-list.css';

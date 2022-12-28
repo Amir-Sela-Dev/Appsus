@@ -6,7 +6,6 @@ import { NoteFilter } from '../cmps/note-filter.jsx';
 import { NoteList } from "../cmps/note-list.jsx";
 
 export function NoteIndex() {
-    // const [isLoading, setIsLoading] = useState(false)
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
     const [notes, setNotes] = useState([])
 
@@ -24,7 +23,6 @@ export function NoteIndex() {
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
-
 
     console.log(notes)
     return <section className="note-index">
