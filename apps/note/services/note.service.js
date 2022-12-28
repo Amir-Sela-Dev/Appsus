@@ -6,7 +6,9 @@ import { utilService } from '../../../services/util.service.js'
 export const noteService = {
     query,
     getDefaultFilter,
-    remove
+    remove,
+    save,
+    get
 }
 
 const NOTE_KEY = 'notesDB'
@@ -34,6 +36,11 @@ function query(filterBy = getDefaultFilter()) {
 
 function remove(noteId) {
     return storageService.remove(NOTE_KEY, noteId)
+}
+
+function get(noteId) {
+    return storageService.get(NOTE_KEY, noteId)
+
 }
 
 function save(car) {

@@ -9,24 +9,23 @@ export function NotePreview({ note, onRemoveNote }) {
     let pinned = 'No'
 
     function getTitleFromBlur(e) {
-        console.log(e)
-        console.log(e.target)
         console.log(e.target.id)
         console.log(e.target.innerText)
         const newTxt = e.target.innerText
-        // noteService.get(noteId)
-        //     .then(note => {
-        //         note.info.txt = newTxt
-        //         save(note).then((note) => setUpdateNoteDisplay(note))
-        //     })
-
+        const noteId = e.target.id
+        noteService.get(noteId)
+            .then(note => {
+                note.info.txt = newTxt
+                save(note)
+                setUpdateNoteDisplay(note)
+            })
     }
 
     function getTextFromBlur(e) {
-        console.log(e)
-        console.log(e.target)
         console.log(e.target.id)
         console.log(e.target.innerText)
+        const newTxt = e.target.innerText
+        const noteId = e.target.id
     }
 
     if (isPinned) pinned = "Yes"
@@ -35,7 +34,6 @@ export function NotePreview({ note, onRemoveNote }) {
         <p contentEditable id={note.id} onBlur={getTextFromBlur}
             className="note-txt">
             Pinned {pinned}
-            <br></br>
             Type {note.type}
         </p>
 
