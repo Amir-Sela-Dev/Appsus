@@ -9,9 +9,29 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    justify-content: center;
 }
 
 .nav-list>* {
     height: 32px;
-    outline: #e1e7ee solid 1px;
+    width: 202px;
+    /* outline: #e1e7ee solid 1px; */
+    padding-inline-start: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.nav-list>*:hover {
+    background-color: rgb(233, 233, 233);
+
+}
+
+.inbox {
+    background-color: #d3e3fd;
+    color: #001d35;
+    font-weight: 700;
+
 }
