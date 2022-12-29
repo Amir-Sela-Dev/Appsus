@@ -25,22 +25,36 @@ function query(filterBy) {
     return storageService.query(EMAIL_KEY)
         .then(mails => {
             let filterdMails = []
+            filterBy.subject = filterBy.txt
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regex.test(mail.body))
+                mails.forEach(mail => {
+                    if (regex.test(mail.body)) filterdMails.push(mail)
+                })
+            }
+            if (filterBy.subject) {
+                const regex = new RegExp(filterBy.subject, 'i')
+                mails.forEach(mail => {
+                    if (regex.test(mail.subject)) filterdMails.push(mail)
+                })
             }
             if (filterBy.isStarred) {
-                mails = mails.filter(mail => mail.isStarred === filterBy.isStarred)
-                console.log(mails)
+                if (!filterdMails.length) {
+                    mails = mails.filter(mail => mail.isStarred === filterBy.isStarred)
+                }
+                else {
+                    filterdMails = filterdMails.filter(mail => mail.isStarred === filterBy.isStarred)
+                }
 
             }
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regex.test(mail.body))
+            if (filterBy.status) {
+                filterBy.isStarred = false
+                const regex = new RegExp(filterBy.status, 'i')
+                mails = mails.filter(mail => regex.test(mail.status))
             }
 
-
-            return mails
+            if (!filterdMails.length) return mails
+            return filterdMails
         })
 }
 
@@ -127,10 +141,11 @@ function _createMail(subject, body) {
 
 
 function getDefaultFilter() {
+    console.log('hi')
     const criteria = {
-        status: '',
+        status: 'inbox',
         subject: '',
-        body: '', // no need to support complex text search
+        txt: '', // no need to support complex text search
         isRead: '', // (optional property, if missing: show all)
         isStarred: '', // (optional property, if missing: show all)
         lables: [] // has any of the labels
