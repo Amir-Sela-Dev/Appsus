@@ -1,8 +1,14 @@
+body {
+    color: #202124;
+}
+
 .main-layout {
     margin: 0 82px
 }
 
 .note {
+    margin-bottom: 20px;
+    display: inline-block;
     position: relative;
     width: 240px;
     min-height: 120px;
@@ -24,11 +30,13 @@
 }
 
 .note-list {
+    width: auto;
     list-style: none;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 240px);
-    gap: 16px;
+    columns: 5;
+    column-width: 240px;
+    column-gap: 20px;
+    /* min-height: 40vh; */
 }
 
 .note-title {
@@ -61,6 +69,7 @@
     border: none;
     height: 1.3rem;
     width: 1.3rem;
+    cursor: pointer;
 }
 
 [contenteditable] {
@@ -73,10 +82,16 @@
     right: 0;
 }
 
-.note:hover {
-    box-shadow: 0px 2px 7px #00000042;
+.pin-full {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
+.note:hover {
+    box-shadow: 0px 2px 7px #00000042;
+    /* outline: 1px; */
+}
 
 .note:hover .tol-bar {
     opacity: 1;
@@ -87,11 +102,13 @@
 }
 
 .tol-bar-space {
-    min-height: 34px;
+    min-height: 40px;
 }
 
 .tol-bar {
-    height: 34px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .image {
@@ -113,4 +130,26 @@
     Background-size: cover;
     background-position: 50% 50%;
     margin: 10px;
+}
+
+.pin-full {
+    background: url(./img/pin-full.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    margin: 10px;
+}
+
+.delete {
+    background: url(./img/bin.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    margin: 10px;
+}
+
+.non-pined-wrap {
+    margin-top: 40px;
+}
+
+.space-x {
+    height: 700px;
 }

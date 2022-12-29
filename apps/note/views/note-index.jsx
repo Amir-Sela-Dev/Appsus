@@ -11,10 +11,13 @@ export function NoteIndex() {
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
     const [notes, setNotes] = useState([])
     let [addNote, setaddNote] = useState(false)
+    let [pinNote, setPinNote] = useState(false)
 
     useEffect(() => {
         loadNotes()
-    }, [filterBy, addNote])
+
+        return setPinNote(false)
+    }, [filterBy, addNote, pinNote])
 
     function loadNotes() {
         noteService.query(filterBy)
@@ -42,14 +45,21 @@ export function NoteIndex() {
             })
     }
 
+    function onPinnedNote(noteId) {
+        let noteToPin = notes.find(note => note.id === noteId)
+        console.log(noteToPin)
+        noteToPin.isPinned = !noteToPin.isPinned
+        console.log('After', noteToPin)
+        noteService.save(noteToPin).then(() => setPinNote(true))
+    }
+
     console.log(notes)
     return <section className="note-index">
         <NoteHeader onSetFilter={onSetFilter} />
-       
+        <hr></hr>
         <div className="main-layout">
-            {/* <NoteHeader /> */}
             <NoteAdd onAddNote={onAddNote} />
-            <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+            <NoteList notes={notes} onRemoveNote={onRemoveNote} onPinnedNote={onPinnedNote} />
         </div>
     </section>
 
