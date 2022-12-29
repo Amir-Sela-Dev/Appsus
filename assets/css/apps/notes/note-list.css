@@ -61,6 +61,7 @@
     border: none;
     height: 1.3rem;
     width: 1.3rem;
+    cursor: pointer;
 }
 
 [contenteditable] {
@@ -75,8 +76,13 @@
 
 .note:hover {
     box-shadow: 0px 2px 7px #00000042;
+    /* outline: 1px; */
 }
 
+.note-preview:hover {
+    padding-bottom: 0;
+    transition: 0.5s;
+}
 
 .note:hover .tol-bar {
     opacity: 1;
@@ -92,6 +98,7 @@
 
 .tol-bar {
     height: 34px;
+
 }
 
 .image {

@@ -8,10 +8,9 @@
     margin: 32px auto;
     margin: 2rem;
     display: block;
-    max-width: 600px;
+    width: 600px;
     padding: var(--inputPaddingV) var(--inputPaddingH);
     color: inherit;
-    width: 100%;
     font-family: Product;
     font-size: 1.3rem;
     /* line-height: var(--inputLineHeight); */
@@ -35,10 +34,12 @@
     height: 32px;
     width: 32px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .add-wrap {
     display: flex;
+    width: 850px;
 }
 
 .todo {
@@ -47,7 +48,7 @@
     background-position: 50% 50%;
     align-self: center;
     position: relative;
-    right: 9.2rem;
+    right: 15rem;
 }
 
 .canvas {
@@ -56,7 +57,7 @@
     background-position: 50% 50%;
     align-self: center;
     position: relative;
-    right: 9.2rem;
+    right: 13rem;
 }
 
 .img {
@@ -65,5 +66,5 @@
     background-position: 50% 50%;
     align-self: center;
     position: relative;
-    right: 9.2rem;
+    right: 11rem;
 }
