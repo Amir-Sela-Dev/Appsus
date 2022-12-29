@@ -13,6 +13,7 @@ import { SideNav } from '../cmps/mail-side-nav.jsx';
 export function MailIndex() {
     const [mails, setMails] = useState([])
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+    const [mailToEdit, setMailToEdit] = useState(mailService.getEmptyMail())
 
     useEffect(() => {
         loadMails()
@@ -38,7 +39,13 @@ export function MailIndex() {
     }
 
     function onSetFilter(filterByFromFilter) {
+        console.log(filterBy)
         setFilterBy(filterByFromFilter)
+    }
+
+    function onAddMail() {
+
+
     }
 
     return <section className="mail-index">
