@@ -30,13 +30,12 @@ body {
 }
 
 .note-list {
-    width: auto;
     list-style: none;
     padding: 0;
     columns: 5;
     column-width: 240px;
     column-gap: 20px;
-    /* min-height: 40vh; */
+    width: 1300px;
 }
 
 .note-title {
