@@ -1,8 +1,14 @@
+body {
+    color: #202124;
+}
+
 .main-layout {
     margin: 0 82px
 }
 
 .note {
+    margin-bottom: 20px;
+    display: inline-block;
     position: relative;
     width: 240px;
     min-height: 120px;
@@ -24,11 +30,13 @@
 }
 
 .note-list {
+    width: auto;
     list-style: none;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 240px);
-    gap: 16px;
+    columns: 5;
+    column-width: 240px;
+    column-gap: 20px;
+    /* min-height: 40vh; */
 }
 
 .note-title {
