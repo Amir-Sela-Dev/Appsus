@@ -44,7 +44,6 @@ function get(noteId) {
 }
 
 function save(note) {
-    console.log(note);
     if (note.id) {
         return storageService.put(NOTE_KEY, note)
     } else {
@@ -139,7 +138,7 @@ function createNotes() {
             {
                 id: utilService.makeId(),
                 type: "note-txt",
-                isPinned: false,
+                isPinned: true,
                 info: {
                     txt: "Sprint 3!"
                 },

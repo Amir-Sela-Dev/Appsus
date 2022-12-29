@@ -74,14 +74,15 @@
     right: 0;
 }
 
+.pin-full {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .note:hover {
     box-shadow: 0px 2px 7px #00000042;
     /* outline: 1px; */
-}
-
-.note-preview:hover {
-    padding-bottom: 0;
-    transition: 0.5s;
 }
 
 .note:hover .tol-bar {
@@ -93,12 +94,13 @@
 }
 
 .tol-bar-space {
-    min-height: 34px;
+    min-height: 40px;
 }
 
 .tol-bar {
-    height: 34px;
-
+    height: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .image {
@@ -120,4 +122,26 @@
     Background-size: cover;
     background-position: 50% 50%;
     margin: 10px;
+}
+
+.pin-full {
+    background: url(./img/pin-full.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    margin: 10px;
+}
+
+.delete {
+    background: url(./img/bin.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    margin: 10px;
+}
+
+.non-pined-wrap {
+    margin-top: 40px;
+}
+
+.space-x {
+    height: 700px;
 }

@@ -35,8 +35,7 @@ export function NoteHeader({ onSetFilter }) {
         </div>
         <h2 className="header-title">Keep</h2>
         <form className="search-wrap" onSubmit={onSubmitFilter}>
-            <label className=".search-input-label"
-                htmlFor="info"></label>
+
             <input type="text"
                 id="info"
                 className="search-input"
@@ -44,10 +43,9 @@ export function NoteHeader({ onSetFilter }) {
                 placeholder="search.."
                 onChange={handleChange}
             />
-       
-            {/* <button>Filter notes</button> */}
+
+            <button className="search-icon"></button>
         </form>
-        <hr></hr>
 
     </section>
 }

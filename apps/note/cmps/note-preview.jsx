@@ -2,12 +2,12 @@ import { noteService } from "../services/note.service.js"
 
 const { useState } = React
 
-export function NotePreview({ note, onRemoveNote }) {
+export function NotePreview({ note, onRemoveNote, onPinnedNote }) {
     const { info } = note
     const { isPinned } = note
     const [updateNoteDisplay, setUpdateNoteDisplay] = useState()
     const [isHoverNote, setIsHoverNote] = useState(false)
-    let pinned = 'No'
+    let pinIcon = ''
 
     function getTitleFromBlur(e) {
         const newTxt = e.target.innerText
@@ -33,7 +33,8 @@ export function NotePreview({ note, onRemoveNote }) {
 
     }
 
-    if (isPinned) pinned = "Yes"
+    pinIcon = isPinned ? "pin-full" : 'pin'
+
     return <article className="note-preview"
         onMouseEnter={() => setIsHoverNote(true)}
         onMouseLeave={() => setIsHoverNote(false)}>
@@ -46,18 +47,16 @@ export function NotePreview({ note, onRemoveNote }) {
             onBlur={getTextFromBlur}
             suppressContentEditableWarning={true}
             className="note-txt">
-            {/* Pinned {pinned} */}
             {note.type}
         </p>
         {!isHoverNote && <div className="tol-bar-space"></div>}
         {isHoverNote && <div className="tool-bar" role="toolbar">
-            <button className="note-btn pin"></button>
+            <button className={`note-btn ${pinIcon}`} onClick={() => onPinnedNote(note.id)}></button>
             <button className="note-btn palet" ></button>
             <button className="note-btn image"></button>
-
             <button className="note-btn delete" onClick={() => onRemoveNote(note.id)}></button>
         </div>}
 
-
     </article>
+
 }

@@ -37,6 +37,10 @@
     --inputTransitionTF: var(--transitionTF);
 }
 
+.search-wrap {
+    display: flex;
+}
+
 .search-input {
     margin: 2rem;
     display: block;
@@ -78,4 +82,20 @@
 hr {
     border: 0.5px solid rgba(110, 110, 110, 0.134);
     margin: 0;
+}
+
+.search-icon {
+    background: url(./img/search.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    position: relative;
+    right: 5rem;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+    height: 32px;
+    width: 32px;
+    margin: 5px;
+    cursor: pointer;
 }
