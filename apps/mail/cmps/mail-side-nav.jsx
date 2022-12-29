@@ -3,20 +3,13 @@ const { useState, useEffect } = React
 import { mailService } from '../services/mail.service.js';
 
 
-export function SideNav({ onSetFilter, onToogleComposeMail, filterBy }) {
-    const [sideNavFilterByToEdit, setSideNavFilterByToEdit] = useState(filterBy)
+export function SideNav({ onSetFilterBy, onToogleComposeMail, filterBy }) {
 
-    useEffect(() => {
-        console.log(sideNavFilterByToEdit)
-        onSetFilter(sideNavFilterByToEdit)
-    }, [sideNavFilterByToEdit])
 
     function onHandleChange(field, value) {
 
         console.log(field, value)
-        setSideNavFilterByToEdit((prevFilter) => {
-            return { ...prevFilter, [field]: value }
-        })
+        onSetFilterBy(field, value)
     }
 
 
@@ -24,13 +17,13 @@ export function SideNav({ onSetFilter, onToogleComposeMail, filterBy }) {
 
     return <section className="mail-side-nav">
 
-        <button className="compose" onClick={() => { onToogleComposeMail() }}>Compose</button>
+        <div className="nav-compose" onClick={() => { onToogleComposeMail() }}> <div className="compose icon"></div> Compose</div>
         <div className="nav-list" >
-            <div className="inbox" onClick={() => { onHandleChange('status', 'inbox') }}> <div className='fa-solid fa-inbox'></div>Inbox</div>
-            <div className="nav-Starred" onClick={() => { onHandleChange('isStarred', true) }}> <div className='unStarred icon'></div> Starred</div>
-            <div className="sent" onClick={() => { onHandleChange('status', 'sent') }}> <div className="fa-light fa-paper-plane-top"></div> Sent</div>
-            <div className="nav-trash">Trash</div>
-            <div className="Drafts" onClick={() => { onHandleChange('status', 'draft') }}>Drafts</div>
+            <div className="nav-inbox" onClick={() => { onHandleChange('status', 'inbox') }}> <div className='inbox icon'></div>Inbox</div>
+            <div className="nav-Starred" onClick={() => { onHandleChange('status', 'star') }}> <div className='unStarred icon'></div> Starred</div>
+            <div className="nav-sent" onClick={() => { onHandleChange('status', 'sent') }}> <div className="sent icon"></div> Sent</div>
+            <div className="nav-trash" onClick={() => { onHandleChange('status', 'trash') }}><div className="black-trash icon"></div> Trash</div>
+            <div className="Drafts" onClick={() => { onHandleChange('status', 'draft') }}><div className="draft icon"></div>Drafts</div>
         </div>
 
     </section>
