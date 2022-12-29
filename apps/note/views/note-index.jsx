@@ -45,6 +45,7 @@ export function NoteIndex() {
     console.log(notes)
     return <section className="note-index">
         <NoteHeader onSetFilter={onSetFilter} />
+       
         <div className="main-layout">
             {/* <NoteHeader /> */}
             <NoteAdd onAddNote={onAddNote} />

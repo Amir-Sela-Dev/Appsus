@@ -44,9 +44,10 @@ export function NoteHeader({ onSetFilter }) {
                 placeholder="search.."
                 onChange={handleChange}
             />
+       
             {/* <button>Filter notes</button> */}
         </form>
-
+        <hr></hr>
 
     </section>
 }
