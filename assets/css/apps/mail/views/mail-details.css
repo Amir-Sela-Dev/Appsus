@@ -1,0 +1,7 @@
+.mail-details {
+    flex-direction: column;
+}
+
+.remove {
+    opacity: 1;
+}

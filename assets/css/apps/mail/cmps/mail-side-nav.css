@@ -1,0 +1,17 @@
+.mail-side-nav {
+    background-color: var(--main-header-color);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-list>* {
+    height: 32px;
+    outline: #e1e7ee solid 1px;
+}

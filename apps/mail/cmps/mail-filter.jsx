@@ -31,7 +31,7 @@ export function MailFilter({ onSetFilter }) {
                 id="txt"
                 name="txt"
                 placeholder="Search mail"
-                // value={filterByToEdit.txt}
+                value={filterByToEdit.txt}
                 onChange={handleChange}
 
             />

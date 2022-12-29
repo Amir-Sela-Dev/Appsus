@@ -1,0 +1,23 @@
+.mail-index {
+    display: grid;
+    grid-template-areas:
+        "   side-nav      filter"
+        "   side-nav      mail-list"
+    ;
+    grid-template-columns: 256px 1fr;
+    grid-template-rows: 20px 1fr;
+    color: var(--mail-text-color);
+}
+
+.mail-side-nav {
+    grid-area: side-nav;
+    min-height: 83vh;
+}
+
+.mail-filter {
+    grid-area: filter;
+}
+
+.mails-list {
+    grid-area: mail-list;
+}

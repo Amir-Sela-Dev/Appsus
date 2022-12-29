@@ -25,7 +25,10 @@
 
 
 /* mail app */
-@import './apps/mail/mail.preview.css';
+@import './apps/mail/cmps/mail.preview.css';
+@import './apps/mail/views/mail-details.css';
+@import './apps/mail/cmps/mail-side-nav.css';
+@import './apps/mail/views/mail-index.css';
 /* notes */
 
 @import './apps/notes/main-notes.css';

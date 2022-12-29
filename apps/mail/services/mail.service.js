@@ -28,12 +28,8 @@ function query(filterBy) {
             console.log(filterBy)
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regex.test(mail.body))
+                mails = mails.filter(mail => regex.test(mail.body || mail.subject))
             }
-            // if (filterBy.subject) {
-            //     const regex = new RegExp(filterBy.subject, 'i')
-            //     mails = mails.filter(mail => regex.test(mail.subject))
-            // }
             return mails
         })
 }
@@ -75,7 +71,9 @@ function getEmptyMail(subject = 'general', body = 'im an empty mail!') {
         isRead: (Math.random() > 0.5) ? false : true,
         isStarred: (Math.random() > 0.5) ? false : true,
         sentAt: Date.now(),
-        to: 'momo@momo.com'
+        removedAt: null,
+        from: 'momo@momo.com',
+        to: 'user@appsus.com'
     }
     return mail
 }
