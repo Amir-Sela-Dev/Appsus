@@ -20,41 +20,22 @@ const loggedinUser = {
     fullname: 'Mahatma Appsus'
 }
 
-// filterBy = getDefaultFilter()
 function query(filterBy) {
     return storageService.query(EMAIL_KEY)
         .then(mails => {
-            let filterdMails = []
-            filterBy.subject = filterBy.txt
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                mails.forEach(mail => {
-                    if (regex.test(mail.body)) filterdMails.push(mail)
-                })
+            if (filterBy.status === 'star') {
+                mails = mails.filter(mail => mail.isStarred)
             }
-            if (filterBy.subject) {
-                const regex = new RegExp(filterBy.subject, 'i')
-                mails.forEach(mail => {
-                    if (regex.test(mail.subject)) filterdMails.push(mail)
-                })
-            }
-            if (filterBy.isStarred) {
-                if (!filterdMails.length) {
-                    mails = mails.filter(mail => mail.isStarred === filterBy.isStarred)
-                }
-                else {
-                    filterdMails = filterdMails.filter(mail => mail.isStarred === filterBy.isStarred)
-                }
-
-            }
-            if (filterBy.status) {
-                filterBy.isStarred = false
+            if (filterBy.status !== 'star') {
                 const regex = new RegExp(filterBy.status, 'i')
                 mails = mails.filter(mail => regex.test(mail.status))
             }
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.body) || regex.test(mail.subject) || regex.test(mail.to))
+            }
 
-            if (!filterdMails.length) return mails
-            return filterdMails
+            return mails
         })
 }
 

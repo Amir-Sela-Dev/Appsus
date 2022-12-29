@@ -2,28 +2,19 @@ const { useState, useEffect } = React
 
 import { mailService } from '../services/mail.service.js';
 
-export function MailFilter({ onSetFilter, filterBy }) {
+export function MailFilter({ onTxtSetFilterBy, filterBy }) {
 
-    const [txtFilterByToEdit, setTxtFilterByToEdit] = useState(filterBy)
-
-    useEffect(() => {
-        onSetFilter(txtFilterByToEdit)
-    }, [txtFilterByToEdit])
 
     function handleChange({ target }) {
         let { value, name: field } = target
 
-        setTxtFilterByToEdit((prevFilter) => {
-            return { ...prevFilter, [field]: value }
-        })
+        onTxtSetFilterBy(field, value)
     }
 
     function onSubmitFilter(ev) {
         ev.preventDefault()
-        onSetFilter(txtFilterByToEdit)
     }
 
-    console.log(txtFilterByToEdit)
 
     return <section className="mail-filter">
         <form onSubmit={onSubmitFilter}>
@@ -31,7 +22,7 @@ export function MailFilter({ onSetFilter, filterBy }) {
                 id="txt"
                 name="txt"
                 placeholder="Search mail"
-                value={txtFilterByToEdit.txt}
+                value={filterBy.txt}
                 onChange={handleChange}
 
             />
