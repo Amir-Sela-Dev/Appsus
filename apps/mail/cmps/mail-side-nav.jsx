@@ -10,15 +10,16 @@ export function SideNav({ onSetFilter }) {
         onSetFilter(filterByToEdit)
     }, [filterByToEdit])
 
-    function onHandleChange({ target }) {
-        console.log(target)
-        let { value, name: field } = target
-        console.log(field)
-        console.log(value)
+    function onHandleChange(value) {
+        // let { value, name: field } = target
+        // console.log(value)
         setFilterByToEdit((prevFilter) => {
-            return { ...prevFilter, [field]: value }
+            return { ...prevFilter, [value]: true }
         })
     }
+
+
+
 
 
 

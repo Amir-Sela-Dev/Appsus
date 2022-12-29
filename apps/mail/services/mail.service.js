@@ -21,15 +21,17 @@ const loggedinUser = {
 
 // filterBy = getDefaultFilter()
 function query(filterBy) {
-    console.log(filterBy)
     return storageService.query(EMAIL_KEY)
         .then(mails => {
             filterBy.subject = filterBy.txt
-            console.log(filterBy)
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regex.test(mail.body || mail.subject))
+                mails = mails.filter(mail => regex.test(mail.body))
             }
+            if (filterBy.isStared) {
+                mails = mails.filter(mail => regex.test(mail.isStared))
+            }
+
             return mails
         })
 }
@@ -73,7 +75,8 @@ function getEmptyMail(subject = 'general', body = 'im an empty mail!') {
         sentAt: Date.now(),
         removedAt: null,
         from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        status: 'inbox'
     }
     return mail
 }
