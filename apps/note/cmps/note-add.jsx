@@ -47,8 +47,6 @@ export function NoteAdd({ onAddNote }) {
     return <section className="note-add">
         <form className="add-wrap" >
 
-            {/* <label className=".add-input-label"
-                htmlFor="note-txt"></label> */}
             <input type="text"
                 id="note-txt"
                 className="add-input"
