@@ -8,9 +8,6 @@ export function NoteList({ notes, onRemoveNote }) {
         {
             notes.map(note => <li className="note" key={note.id}>
                 <NotePreview note={note} onRemoveNote={onRemoveNote} />
-                <div>
-                    {/* <button onClick={() => { console.log('Clicked remove') }}>Remove</button> */}
-                </div>
             </li>)
         }
     </ul>
