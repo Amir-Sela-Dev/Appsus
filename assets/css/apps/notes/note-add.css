@@ -2,3 +2,20 @@
     margin: 0 auto;
     max-width: 600px;
 }
+
+.new-note {
+    background-color: transparent;
+    border: none;
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.todos {
+    /* background: url(./img/todos-v.svg); */
+    /* Background-size: cover; */
+    /* background-position: 50% 50%; */
+}
+
+.add-wrap {
+    display: flex;
+}

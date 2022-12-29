@@ -47,8 +47,8 @@ export function NoteAdd({ onAddNote }) {
     return <section className="note-add">
         <form className="add-wrap" >
 
-            <label className=".add-input-label"
-                htmlFor="note-txt"></label>
+            {/* <label className=".add-input-label"
+                htmlFor="note-txt"></label> */}
             <input type="text"
                 id="note-txt"
                 className="add-input"
@@ -57,7 +57,9 @@ export function NoteAdd({ onAddNote }) {
                 onChange={getValue}
                 ref={inputEl}
             />
-
+            <button className="todo">sdfsdf</button>
+            {/* <button className="new-note canvas">sdf</button> */}
+            {/* <button className="new-note img">sdf</button> */}
         </form>
     </section>
 }

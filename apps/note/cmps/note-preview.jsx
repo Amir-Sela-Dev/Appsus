@@ -51,11 +51,11 @@ export function NotePreview({ note, onRemoveNote }) {
         </p>
         {!isHoverNote && <div className="tol-bar-space"></div>}
         {isHoverNote && <div className="tool-bar" role="toolbar">
-            <button className="note-btn pin">📌</button>
-            <button className="note-btn color" >🎨</button>
-            <button className="note-btn image">img</button>
+            <button className="note-btn pin"></button>
+            <button className="note-btn palet" ></button>
+            <button className="note-btn image"></button>
 
-            <button className="note-btn delete" onClick={() => onRemoveNote(note.id)}>💥</button>
+            <button className="note-btn delete" onClick={() => onRemoveNote(note.id)}></button>
         </div>}
 
 
