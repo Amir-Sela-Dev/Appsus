@@ -45,13 +45,13 @@ export function NoteAdd({ onAddNote }) {
 
     console.log(valueToAdd)
     return <section className="note-add">
-        <form className="search-wrap" >
+        <form className="add-wrap" >
 
-            <label className=".search-input-label"
+            <label className=".add-input-label"
                 htmlFor="note-txt"></label>
             <input type="text"
                 id="note-txt"
-                className="search-input"
+                className="add-input"
                 name="note-txt"
                 placeholder="Take a note.."
                 onChange={getValue}
