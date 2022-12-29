@@ -1,7 +1,7 @@
 import { noteService } from "../services/note.service.js"
 const { useEffect, useRef } = React
+export function NoteImg({ onAddNote }) {
 
-export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onRenderComp }) {
     const inputEl = useRef()
     let valueToAdd
 
@@ -15,14 +15,20 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
         let { value } = target
         if (!value) return
         valueToAdd = value
-
-        // addNote(value)
+        console.log(valueToAdd)
     }
 
     function addNote(txt) {
         const newNote = noteService.getEmptyNote()
         newNote.info.txt = txt
         newNote.type = 'note-txt'
+        noteService.save(newNote).then(onAddNote)
+    }
+
+    function addImg(url) {
+        const newNote = noteService.getEmptyNote()
+        newNote.info.url = url
+        newNote.type = 'note-img'
         noteService.save(newNote).then(onAddNote)
     }
 
@@ -37,16 +43,13 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
         if (!valueToAdd) return
         let isClicked = true
         if (isClicked) {
-            addNote(valueToAdd)
+            // addNote(valueToAdd)
+            // https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)
+            addImg(valueToAdd)
             valueToAdd = ''
             inputEl.current.value = ''
         }
         isClicked = false
-    }
-
-    function renderComponent() {
-        console.log('Render Component')
-        onRenderComp('txt')
     }
 
     console.log(valueToAdd)
@@ -54,17 +57,13 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
         <form className="add-wrap" >
 
             <input type="text"
-                id="note-txt"
+                id="note-img"
                 className="add-input"
-                name="note-txt"
-                value="Take a note.."
-                onClick={renderComponent}
+                name="note-img"
+                placeholder="Image URL"
+                onChange={getValue}
                 ref={inputEl}
             />
-
-            <button className="new-note todo" onClick={onCreatTodo}></button>
-            <button className="new-note canvas" onClick={onCreatCanvas}></button>
-            <button className="new-note img" onClick={() => onCreatImg('img')}></button>
         </form>
     </section>
 }

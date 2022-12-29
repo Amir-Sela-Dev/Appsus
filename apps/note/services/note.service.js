@@ -54,7 +54,7 @@ function save(note) {
 function getEmptyNote() {
     return {
         id: "",
-        type: "note-txt",
+        type: "",
         isPinned: false,
         info: {
             txt: ""
@@ -80,6 +80,7 @@ function createNotes() {
                 type: "note-txt",
                 isPinned: false,
                 info: {
+                    title: "I have a sub",
                     txt: "Amirs team"
                 },
                 style: {
@@ -88,64 +89,40 @@ function createNotes() {
 
             },
             {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
+                id: 'n101',
+                createdAt: 1112222,
+                type: 'note-txt',
                 isPinned: true,
+                style: {
+                    backgroundColor: '#00d'
+                },
                 info: {
-                    txt: "Sprint 3!"
+                    txt: 'Fullstack Me Baby!'
+                }
+            },
+            {
+                id: 'n102',
+                type: 'note-img',
+                isPinned: false,
+                info: {
+                    url: 'https://www.google.com/images/icons/product/keep-512.png',
+                    title: 'Bobi and Me'
                 },
                 style: {
-                    backgroundColor: "#fbbc04"
+                    backgroundColor: '#00d'
                 }
-
+            },
+            {
+                id: 'n103',
+                type: 'note-todos',
+                isPinned: false,
+                info: {
+                    title: 'Get my stuff together',
+                    todos: [
+                        { txt: 'Driving liscence', doneAt: null },
+                        { txt: 'Coding power', doneAt: 187111111 }
+                    ]
+                }
             }
         ]
         utilService.saveToStorage(NOTE_KEY, notes)

@@ -1,7 +1,8 @@
 import { noteService } from "../services/note.service.js"
 const { useEffect, useRef } = React
 
-export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onRenderComp }) {
+
+export function NoteTxt({ onAddNote }) {
     const inputEl = useRef()
     let valueToAdd
 
@@ -22,7 +23,6 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
     function addNote(txt) {
         const newNote = noteService.getEmptyNote()
         newNote.info.txt = txt
-        newNote.type = 'note-txt'
         noteService.save(newNote).then(onAddNote)
     }
 
@@ -44,27 +44,19 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
         isClicked = false
     }
 
-    function renderComponent() {
-        console.log('Render Component')
-        onRenderComp('txt')
-    }
-
     console.log(valueToAdd)
     return <section className="note-add">
         <form className="add-wrap" >
 
             <input type="text"
                 id="note-txt"
-                className="add-input"
+                className="add-input txt-input"
                 name="note-txt"
-                value="Take a note.."
-                onClick={renderComponent}
+                placeholder="Take a note.."
+                onChange={getValue}
                 ref={inputEl}
             />
 
-            <button className="new-note todo" onClick={onCreatTodo}></button>
-            <button className="new-note canvas" onClick={onCreatCanvas}></button>
-            <button className="new-note img" onClick={() => onCreatImg('img')}></button>
         </form>
     </section>
 }

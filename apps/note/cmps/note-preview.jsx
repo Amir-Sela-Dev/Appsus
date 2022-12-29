@@ -33,22 +33,27 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote }) {
 
     }
 
-    pinIcon = isPinned ? "pin-full" : 'pin'
+    pinIcon = isPinned ? 'pin-full' : 'pin'
+    const { style } = note
+    // let color = style.backgroundColor ? style.backgroundColor : ''
 
     return <article className="note-preview"
         onMouseEnter={() => setIsHoverNote(true)}
-        onMouseLeave={() => setIsHoverNote(false)}>
+        onMouseLeave={() => setIsHoverNote(false)}
+        style={{ backgroundColor: style.backgroundColor }}
+    >
 
         <p contentEditable className="note-title" id={note.id} key={note.id}
             onBlur={getTitleFromBlur}
-            suppressContentEditableWarning={true}>{info.txt}</p>
+            suppressContentEditableWarning={true}>{info.title}</p>
 
         <p contentEditable id={note.id}
             onBlur={getTextFromBlur}
             suppressContentEditableWarning={true}
             className="note-txt">
-            {note.type}
+            {info.txt}
         </p>
+        <img className="note-img" src={info.url}></img>
         {!isHoverNote && <div className="tol-bar-space"></div>}
         {isHoverNote && <div className="tool-bar" role="toolbar">
             <button className={`note-btn ${pinIcon}`} onClick={() => onPinnedNote(note.id)}></button>
