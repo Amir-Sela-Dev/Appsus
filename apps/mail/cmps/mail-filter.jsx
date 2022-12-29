@@ -12,8 +12,6 @@ export function MailFilter({ onSetFilter }) {
 
     function handleChange({ target }) {
         let { value, name: field } = target
-        console.log(field)
-        console.log(value)
         setFilterByToEdit((prevFilter) => {
             return { ...prevFilter, [field]: value }
         })
