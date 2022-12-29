@@ -7,17 +7,18 @@ import { mailService } from '../services/mail.service.js';
 import { eventBusService, showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js';
 import { MailFilter } from '../cmps/mail-filter.jsx';
 import { SideNav } from '../cmps/mail-side-nav.jsx';
+import { MailCompose } from '../cmps/mail-compose.jsx';
 
 
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
-    const [mailToEdit, setMailToEdit] = useState(mailService.getEmptyMail())
+    const [isCompose, setIsCompose] = useState(false)
 
     useEffect(() => {
         loadMails()
-    }, [filterBy])
+    }, [filterBy, isCompose])
 
     function loadMails() {
         mailService.query(filterBy).then(mailsToUpdate => {
@@ -43,17 +44,20 @@ export function MailIndex() {
         setFilterBy(filterByFromFilter)
     }
 
-    function onAddMail() {
-
-
+    function onToogleComposeMail() {
+        console.log('toggle!')
+        setIsCompose(!isCompose)
     }
+
 
     return <section className="mail-index">
 
-        <SideNav onSetFilter={onSetFilter} />
+        <SideNav onSetFilter={onSetFilter} onToogleComposeMail={onToogleComposeMail} />
         <MailFilter onSetFilter={onSetFilter} />
 
         <MailList mails={mails} onRemoveMail={onRemoveMail} />
+        {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />
+        }
     </section>
 }
 

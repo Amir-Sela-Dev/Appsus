@@ -54,10 +54,10 @@ export function MailDetails() {
                 <button className="remove trash icon" onClick={() => { onRemoveMail(mailId) }}></button>
             </div>
             <div className="title"><h2>{mail.subject}</h2></div>
-            <div className="user-icon"></div>
+            <div className="user-icon"> {mail.status}</div>
             <div className="sent-from">{mail.from}</div>
             <div className="sent-to">{(mail.to === 'user@appsus.com') ? 'To me' : mail.to}</div>
-            <div className="mail-body">{mail.body}</div>
+            <div className="mail-body"> <p>{mail.body}</p></div>
         </div>
 
 

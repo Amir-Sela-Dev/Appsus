@@ -3,7 +3,7 @@ const { useState, useEffect } = React
 import { mailService } from '../services/mail.service.js';
 
 
-export function SideNav({ onSetFilter }) {
+export function SideNav({ onSetFilter, onToogleComposeMail }) {
     const [filterByToEdit, setFilterByToEdit] = useState(mailService.getDefaultFilter())
 
     useEffect(() => {
@@ -26,10 +26,10 @@ export function SideNav({ onSetFilter }) {
 
     return <section className="mail-side-nav">
 
-        <button className="compose">Compose</button>
+        <button className="compose" onClick={() => { onToogleComposeMail() }}>Compose</button>
         <div className="nav-list" >
             <div className="inbox">Inbox</div>
-            <div className="nav-Starred" onClick={() => { onHandleChange('isStared') }}>Starred</div>
+            <div className="nav-Starred" onClick={() => { onHandleChange('isStarred') }}>Starred</div>
             <div className="sent">Sent</div>
             <div className="nav-trash">Trash</div>
             <div className="Drafts">Drafts</div>

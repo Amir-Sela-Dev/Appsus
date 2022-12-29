@@ -29,6 +29,7 @@
 @import './apps/mail/views/mail-details.css';
 @import './apps/mail/cmps/mail-side-nav.css';
 @import './apps/mail/views/mail-index.css';
+@import './apps/mail/cmps/mail-compose.css';
 /* notes */
 
 @import './apps/notes/main-notes.css';

@@ -10,7 +10,8 @@ export const mailService = {
     remove,
     save,
     getEmptyMail,
-    getDefaultFilter
+    getDefaultFilter,
+    getEmptyComposeMail
 }
 
 
@@ -23,14 +24,21 @@ const loggedinUser = {
 function query(filterBy) {
     return storageService.query(EMAIL_KEY)
         .then(mails => {
-            filterBy.subject = filterBy.txt
+            let filterdMails = []
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.body))
             }
-            if (filterBy.isStared) {
-                mails = mails.filter(mail => regex.test(mail.isStared))
+            if (filterBy.isStarred) {
+                mails = mails.filter(mail => mail.isStarred === filterBy.isStarred)
+                console.log(mails)
+
             }
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.body))
+            }
+
 
             return mails
         })
@@ -81,6 +89,15 @@ function getEmptyMail(subject = 'general', body = 'im an empty mail!') {
     return mail
 }
 
+function getEmptyComposeMail() {
+    let mail = getEmptyMail('', '')
+    mail.sentAt = ''
+    mail.status = 'sent'
+    mail.to = ''
+    mail.to = ''
+    return mail
+}
+
 
 function _createMails() {
     let mails = utilService.loadFromStorage(EMAIL_KEY)
@@ -115,7 +132,7 @@ function getDefaultFilter() {
         subject: '',
         body: '', // no need to support complex text search
         isRead: '', // (optional property, if missing: show all)
-        isStared: '', // (optional property, if missing: show all)
+        isStarred: '', // (optional property, if missing: show all)
         lables: [] // has any of the labels
     }
 
