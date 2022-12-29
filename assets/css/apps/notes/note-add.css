@@ -3,19 +3,67 @@
     max-width: 600px;
 }
 
+
+.add-input {
+    margin: 32px auto;
+    margin: 2rem;
+    display: block;
+    max-width: 600px;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    width: 100%;
+    font-family: Product;
+    font-size: 1.3rem;
+    /* line-height: var(--inputLineHeight); */
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-radius: 0.4rem;
+    box-shadow: 0 0 10px #00000038;
+}
+
+.add-input::placeholder {
+    color: #B0BEC5;
+}
+
+.add-input:focus {
+    outline: none;
+}
+
 .new-note {
     background-color: transparent;
     border: none;
-    height: 1.3rem;
-    width: 1.3rem;
-}
-
-.todos {
-    /* background: url(./img/todos-v.svg); */
-    /* Background-size: cover; */
-    /* background-position: 50% 50%; */
+    z-index: 10;
+    height: 32px;
+    width: 32px;
+    margin: 5px;
 }
 
 .add-wrap {
     display: flex;
+}
+
+.todo {
+    background: url(./img/todos-v.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    position: relative;
+    right: 9.2rem;
+}
+
+.canvas {
+    background: url(./img/add-note-canvas.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    position: relative;
+    right: 9.2rem;
+}
+
+.img {
+    background: url(./img/add-note-img.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    position: relative;
+    right: 9.2rem;
 }

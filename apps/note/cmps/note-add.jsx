@@ -57,9 +57,9 @@ export function NoteAdd({ onAddNote }) {
                 onChange={getValue}
                 ref={inputEl}
             />
-            <button className="todo">sdfsdf</button>
-            {/* <button className="new-note canvas">sdf</button> */}
-            {/* <button className="new-note img">sdf</button> */}
+            <button className="new-note todo"></button>
+            <button className="new-note canvas"></button>
+            <button className="new-note img"></button>
         </form>
     </section>
 }

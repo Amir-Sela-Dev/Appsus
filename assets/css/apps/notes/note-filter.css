@@ -62,29 +62,6 @@
 
 /* ////////////////////////// */
 
-.add-input {
-    margin: 32px auto;
-    margin: 2rem;
-    display: block;
-    max-width: 600px;
-    padding: var(--inputPaddingV) var(--inputPaddingH);
-    color: inherit;
-    width: 100%;
-    font-family: Product;
-    font-size: 1.3rem;
-    /* line-height: var(--inputLineHeight); */
-    border: 1px solid rgba(0, 0, 0, 0.073);
-    border-radius: 0.4rem;
-    box-shadow: 0 0 10px #00000038;
-}
-
-.add-input::placeholder {
-    color: #B0BEC5;
-}
-
-.add-input:focus {
-    outline: none;
-}
 
 .header-title {
     padding-right: 40px;
