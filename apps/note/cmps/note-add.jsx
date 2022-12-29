@@ -57,6 +57,7 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
                 id="note-txt"
                 className="add-input"
                 name="note-txt"
+                readOnly
                 value="Take a note.."
                 onClick={renderComponent}
                 ref={inputEl}

@@ -60,7 +60,7 @@ function getEmptyNote() {
             txt: ""
         },
         style: {
-            backgroundColor: "#fbbc04"
+            backgroundColor: "#fff475"
         }
     }
 }

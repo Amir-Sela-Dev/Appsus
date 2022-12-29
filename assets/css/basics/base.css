@@ -25,3 +25,13 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+input[type="file"] {
+    opacity: 0;
+    width: 15px;
+}
+
+input[type="color"] {
+    opacity: 0;
+    width: 3%;
+}
