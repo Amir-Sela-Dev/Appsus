@@ -34,13 +34,13 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote }) {
     }
 
     pinIcon = isPinned ? 'pin-full' : 'pin'
-    const { style } = note
-    // let color = style.backgroundColor ? style.backgroundColor : ''
+    const style = note.style ? note.style : ''
+    let color = style.backgroundColor ? style.backgroundColor : ''
 
     return <article className="note-preview"
         onMouseEnter={() => setIsHoverNote(true)}
         onMouseLeave={() => setIsHoverNote(false)}
-        style={{ backgroundColor: style.backgroundColor }}
+        style={{ backgroundColor: color }}
     >
 
         <p contentEditable className="note-title" id={note.id} key={note.id}

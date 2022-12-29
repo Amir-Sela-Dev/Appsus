@@ -94,7 +94,7 @@ function createNotes() {
                 type: 'note-txt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#fff475'
                 },
                 info: {
                     txt: 'Fullstack Me Baby!'
@@ -108,21 +108,70 @@ function createNotes() {
                     url: 'https://www.google.com/images/icons/product/keep-512.png',
                     title: 'Bobi and Me'
                 },
-                style: {
-                    backgroundColor: '#00d'
-                }
             },
             {
                 id: 'n103',
                 type: 'note-todos',
                 isPinned: false,
                 info: {
-                    title: 'Get my stuff together',
+                    title: 'Todo\'s',
                     todos: [
                         { txt: 'Driving liscence', doneAt: null },
                         { txt: 'Coding power', doneAt: 187111111 }
                     ]
                 }
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Coding Academy",
+                    txt: "Amirs team"
+                },
+                style: {
+                    backgroundColor: "#cbf0f8"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Bank Acount",
+                    txt: "Bank: Zahav acount:232654"
+                },
+                style: {
+                    backgroundColor: ""
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Movies to watch",
+                    txt: "The Shawshank Redemption, Scubidoo"
+                },
+                style: {
+                    backgroundColor: "#fdcfe8"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Gmail Password",
+                    txt: "Asdlk@rsldk"
+                },
+                style: {
+                    backgroundColor: ""
+                }
+
             }
         ]
         utilService.saveToStorage(NOTE_KEY, notes)
