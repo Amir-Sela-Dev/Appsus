@@ -51,8 +51,8 @@ export function MailPreview({ mail, onRemoveMail }) {
             <td className="star" width="2%" onClick={() => onStarMail(mail.id)}>{(isStarred) ? <div className='starred icon'></div> : <div className='unStarred icon'></div>}</td>
             <td className="title " width="15%" onClick={() => { navigate(`/mail/${mail.id}`) }}>{(mail.subject.length < 10) ? mail.subject : `${mail.subject.substring(0, 10)}...`}</td>
             <td className="body " width="69%" onClick={() => { navigate(`/mail/${mail.id}`) }}>{(mail.body.length < 50) ? mail.body : `${mail.body.substring(0, 50)}...`}</td>
-            <td className="delete" width="2%"><div className="trash icon" onClick={() => onRemoveMail(mail.id)}></div></td>
-            <td className="read" width="2%" onClick={() => onToogleRead()}>{(isRead) ? <div className='open-envelop icon'></div> : <div className='close-envelop icon'></div>}</td>
+            <td className="remove" width="2%"><div className="trash icon" onClick={() => onRemoveMail(mail.id)}></div></td>
+            <td className="toogle-read" width="2%" onClick={() => onToogleRead()}>{(isRead) ? <div className='open-envelop icon'></div> : <div className='close-envelop icon'></div>}</td>
             <td className="time " width="10%">{getTime()}</td>
         </tr>
     </Fragment>

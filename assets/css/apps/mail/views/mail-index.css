@@ -1,4 +1,6 @@
 .mail-index {
+    font-family: roboto;
+    font-size: 14px;
     display: grid;
     grid-template-areas:
         "   side-nav      filter"

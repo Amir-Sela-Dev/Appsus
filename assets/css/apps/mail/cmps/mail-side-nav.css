@@ -29,9 +29,64 @@
 
 }
 
-.inbox {
+.nav-inbox {
     background-color: #d3e3fd;
     color: #001d35;
     font-weight: 700;
+
+}
+
+.inbox {
+    background-image: url("/assets/img/inbox.png");
+    margin-inline-end: 20px;
+}
+
+.nav-list .unStarred {
+    margin-inline-end: 20px;
+}
+
+.sent {
+    background-image: url("/assets/img/sent.png");
+    margin-inline-end: 20px;
+}
+
+.black-trash {
+    background-image: url("/assets/img/black-trash.png");
+    margin-inline-end: 20px;
+
+}
+
+.draft {
+    background-image: url("/assets/img/draft.png");
+    margin-inline-end: 20px;
+
+}
+
+.nav-compose {
+    width: 118px;
+    height: 56px;
+    background-color: #c2e7ff;
+    fill: #001d35;
+    box-shadow: rgba(0, 0, 0, 0) 0px 1px 2px 0px, rgba(0, 0, 0, 0) 0px 1px 3px 1px;
+    border-radius: 16px;
+    text-align: center;
+    border: #e1e7ee solid 1px;
+    margin: 8px 106px 16px 8px;
+    padding-inline-end: 24px;
+    display: flex;
+    align-items: center;
+    padding-inline-start: 13px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.compose {
+    background-image: url("/assets/img/compose.png");
+    margin-inline-end: 20px;
+}
+
+.nav-compose:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 3px 0px, rgba(60, 64, 67, 0.15) 0px 4px 8px 3px;
 
 }
