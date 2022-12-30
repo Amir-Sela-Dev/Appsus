@@ -1,4 +1,5 @@
 .mails-list {
     background-color: white;
     padding: 0;
+    border-collapse: collapse;
 }

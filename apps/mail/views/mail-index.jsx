@@ -36,19 +36,23 @@ export function MailIndex() {
     function onRemoveMail(mailId) {
         mailService.get(mailId)
             .then(mail => {
-                onCloseMail()
                 if (mail.status === 'trash') {
                     mailService.remove(mailId).then(() => {
                         const updatedMails = mails.filter(mail => mail.id !== mailId)
                         setMails(updatedMails)
                         showSuccessMsg('mail removed!')
+                        onCloseMail()
                     })
                 } else {
                     mail.status = 'trash'
                     mailService.save(mail)
-                    const updatedMails = mails.filter(mail => mail.id !== mailId)
-                    setMails(updatedMails)
-                    showSuccessMsg('mail removed!')
+                        .then(mail => {
+                            const updatedMails = mails.filter(mail => mail.id !== mailId)
+                            console.log(updatedMails);
+                            setMails(updatedMails)
+                            showSuccessMsg('mail removed!')
+                            onCloseMail()
+                        })
                 }
             })
             .catch((err) => {
