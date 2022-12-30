@@ -104,6 +104,12 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onT
         {info.todos && <ul className="todos-list">{getTodos()}</ul>}
 
         <img className="note-img" src={info.url}></img>
+        {info.videoUrl && <section className="note-video" contentEditable>
+            <iframe width="250" height="200"
+                src={`//www.youtube.com/embed/${info.videoUrl}`}
+            ></iframe>
+
+        </section>}
         {selectedImage && <img alt="not found" width={"240px"} src={URL.createObjectURL(selectedImage)} />}
         {!isHoverNote && <div className="tol-bar-space"></div>}
         {isHoverNote && <div className="tool-bar" role="toolbar">

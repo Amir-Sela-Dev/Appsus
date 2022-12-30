@@ -8,6 +8,7 @@ import { NoteAdd } from "../cmps/note-add.jsx";
 import { NoteTxt } from "../cmps/note-txt.jsx";
 import { NoteImg } from "../cmps/note-img.jsx";
 import { NoteTodos } from "../cmps/note-todes.jsx";
+import { NoteVideo } from "../cmps/note-video.jsx";
 // import { NoteHeader } from "../cmps/note-header.jsx";
 
 export function NoteIndex() {
@@ -104,6 +105,11 @@ export function NoteIndex() {
             />}
 
             {type === 'todos' && <NoteTodos
+                onAddNote={onAddNote}
+                onRenderComp={onRenderComp}
+            />}
+
+            {type === 'video' && <NoteVideo
                 onAddNote={onAddNote}
                 onRenderComp={onRenderComp}
             />}

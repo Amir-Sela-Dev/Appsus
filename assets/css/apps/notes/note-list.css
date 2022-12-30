@@ -72,6 +72,14 @@ body {
     cursor: pointer;
 }
 
+.note-txt-btn {
+    background-color: transparent;
+    border: none;
+    height: 1.3rem;
+    width: 1.3rem;
+    cursor: pointer;
+}
+
 [contenteditable] {
     outline: 0px solid transparent;
 }
@@ -118,11 +126,20 @@ body {
     margin: 10px;
 }
 
+
+.img-txt {
+    margin: 0;
+}
+
 .palet {
     background: url(./img/palet.svg);
     Background-size: cover;
     background-position: 50% 50%;
     margin: 1px;
+}
+
+.palet-txt {
+    margin: 0;
 }
 
 .pin {
@@ -132,6 +149,10 @@ body {
     margin: 10px;
 }
 
+.pin-txt {
+    margin: 0;
+}
+
 .pin-full {
     background: url(./img/pin-full.svg);
     Background-size: cover;
@@ -139,11 +160,14 @@ body {
     margin: 10px;
 }
 
+.pin-full-txt {
+    margin: 0;
+}
+
 .delete {
     background: url(./img/bin.svg);
     Background-size: cover;
     background-position: 50% 50%;
-    margin: 10px;
 }
 
 .non-pined-wrap {

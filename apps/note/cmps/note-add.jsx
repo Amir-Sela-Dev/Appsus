@@ -51,7 +51,8 @@ export function NoteAdd({ onRenderComp }) {
             />
 
             <button className="new-note todo" onClick={() => onRenderComp('todos')}></button>
-            <button className="new-note canvas" onClick={() => { }}></button>
+            <button className="new-note canvas" onClick={() => onRenderComp('img')}></button>
+            {/* <button className="new-note video-btn" onClick={() => onRenderComp('video')}></button> */}
             <button className="new-note img" onClick={() => onRenderComp('img')}></button>
         </form>
     </section>
