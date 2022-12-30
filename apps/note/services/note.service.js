@@ -54,13 +54,13 @@ function save(note) {
 function getEmptyNote() {
     return {
         id: "",
-        type: "note-txt",
+        type: "",
         isPinned: false,
         info: {
             txt: ""
         },
         style: {
-            backgroundColor: "#fbbc04"
+            backgroundColor: "#fff475"
         }
     }
 }
@@ -80,6 +80,7 @@ function createNotes() {
                 type: "note-txt",
                 isPinned: false,
                 info: {
+                    title: "I have a sub",
                     txt: "Amirs team"
                 },
                 style: {
@@ -88,62 +89,87 @@ function createNotes() {
 
             },
             {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
-                isPinned: false,
-                info: {
-                    txt: "Amirs team"
-                },
-                style: {
-                    backgroundColor: "#fbbc04"
-                }
-
-            },
-            {
-                id: utilService.makeId(),
-                type: "note-txt",
+                id: 'n101',
+                createdAt: 1112222,
+                type: 'note-txt',
                 isPinned: true,
+                style: {
+                    backgroundColor: '#fff475'
+                },
                 info: {
-                    txt: "Sprint 3!"
+                    txt: 'Fullstack Me Baby!'
+                }
+            },
+            {
+                id: 'n102',
+                type: 'note-img',
+                isPinned: false,
+                info: {
+                    url: 'https://www.google.com/images/icons/product/keep-512.png',
+                    title: 'Bobi and Me'
+                },
+            },
+            {
+                id: 'n103',
+                type: 'note-todos',
+                isPinned: false,
+                info: {
+                    title: 'Todo\'s',
+                    todos: [
+                        { txt: 'Driving liscence', doneAt: null },
+                        { txt: 'Coding power', doneAt: 187111111 }
+                    ]
+                }
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Coding Academy",
+                    txt: "Amirs team"
                 },
                 style: {
-                    backgroundColor: "#fbbc04"
+                    backgroundColor: "#cbf0f8"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Bank Acount",
+                    txt: "Bank: Zahav acount:232654"
+                },
+                style: {
+                    backgroundColor: ""
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Movies to watch",
+                    txt: "The Shawshank Redemption, Scubidoo"
+                },
+                style: {
+                    backgroundColor: "#fdcfe8"
+                }
+
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    title: "Gmail Password",
+                    txt: "Asdlk@rsldk"
+                },
+                style: {
+                    backgroundColor: ""
                 }
 
             }
