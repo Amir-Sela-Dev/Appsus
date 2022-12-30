@@ -11,7 +11,8 @@ export const noteService = {
     get,
     getEmptyNote,
     removeTodo,
-    todoToggleDone
+    todoToggleDone,
+    textToTodos
 }
 
 const NOTE_KEY = 'notesDB'
@@ -96,6 +97,20 @@ function getEmptyNote() {
 function getDefaultFilter() {
 
     return { "info.txt": '', type: '', isPinned: '' }
+}
+
+function textToTodos(txt) {
+    const newTodosTxt = txt.split()
+    const newTodos = []
+    newTodosTxt.map(txt => {
+        let newTodo = {
+            id: utilService.makeId(),
+            txt,
+            doneAt: Date.now()
+        }
+        newTodos.push(newTodo)
+    })
+    return newTodos
 }
 
 function createNotes() {

@@ -18,7 +18,7 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onT
         const noteId = e.target.id
         noteService.get(noteId)
             .then(note => {
-                note.info.txt = newTxt
+                note.info.title = newTxt
                 noteService.save(note).then(setUpdateNoteDisplay)
             })
     }
