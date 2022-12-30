@@ -14,13 +14,14 @@ export function NoteIndex() {
     const [notes, setNotes] = useState([])
     let [addNote, setaddNote] = useState(false)
     let [pinNote, setPinNote] = useState(false)
+    let [removeTodo, setremoveTodo] = useState(false)
     let [type, settype] = useState('')
 
     useEffect(() => {
         loadNotes()
 
         return setPinNote(false)
-    }, [filterBy, addNote, pinNote, type])
+    }, [filterBy, addNote, pinNote, type, removeTodo])
 
     function loadNotes() {
         noteService.query(filterBy)
@@ -65,9 +66,8 @@ export function NoteIndex() {
     }
 
     function onDeletTodo(todoId, noteId) {
-
-        console.log('todoId', todoId)
-        console.log('noteId', noteId)
+        noteService.removeTodo(noteId, todoId)
+            .then(() => setremoveTodo(true))
     }
 
     function onCreatCanvas() {
@@ -76,19 +76,6 @@ export function NoteIndex() {
 
     function onCreatImg(type) {
         settype(type)
-    }
-
-    function getCmpByType(type) {
-        switch (type) {
-            case 'note-txt':
-                return <NoteTxt dataProps={{ ...dataProps }} />
-            case 'note-todos':
-                return <NoteTodos dataProps={{ ...dataProps }} />
-            case 'note-img':
-                return <NoteImg dataProps={{ ...dataProps }} />
-            case 'note-video':
-                return <NoteVideo dataProps={{ ...dataProps }} />
-        }
     }
 
     console.log(notes)

@@ -9,7 +9,8 @@ export const noteService = {
     remove,
     save,
     get,
-    getEmptyNote
+    getEmptyNote,
+    removeTodo
 }
 
 const NOTE_KEY = 'notesDB'
@@ -37,6 +38,18 @@ function query(filterBy = getDefaultFilter()) {
 
 function remove(noteId) {
     return storageService.remove(NOTE_KEY, noteId)
+}
+
+function removeTodo(noteId, todoId) {
+    return get(noteId).then(note => {
+        const { info } = note
+        const { todos } = info
+        console.log(todos)
+        const todoIdx = todos.findIndex(todo => todo.id === todoId)
+        todos.splice(todoIdx, 1)
+        console.log(todos)
+        return save(note)
+    })
 }
 
 function get(noteId) {

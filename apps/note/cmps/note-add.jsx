@@ -49,7 +49,7 @@ export function NoteAdd({ onAddNote, onCreatTodo, onCreatCanvas, onCreatImg, onR
         onRenderComp('txt')
     }
 
-    console.log(valueToAdd)
+
     return <section className="note-add">
         <form className="add-wrap" >
 

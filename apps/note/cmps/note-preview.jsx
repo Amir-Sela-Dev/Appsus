@@ -38,10 +38,6 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo }) {
     }
 
     function getTodoFromBlur(e, todoId, noteId) {
-        console.log(e.target.innerText)
-        console.log('todoId', todoId)
-        console.log('noteId', noteId)
-
         const newTodo = e.target.innerText
         noteService.get(noteId)
             .then(note => {
@@ -49,7 +45,7 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo }) {
                 const { todos } = info
                 let todoToEdit = todos.find(todo => todo.id === todoId)
                 todoToEdit.txt = newTodo
-                console.log(note)
+
                 noteService.save(note).then(setUpdateNoteDisplay)
             })
 
@@ -62,16 +58,20 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo }) {
         noteService.save(note).then(setSelectedColor)
     }
 
+    function onToggleDone(todoId, noteId) {
+        console.log('Done')
+        console.log('todoId', todoId)
+        console.log('noteId', noteId)
+    }
+
     function getTodos() {
         const todos = note.info.todos.map(todo =>
             <li className="todo-item"
                 key={todo.id}>
 
                 <div className={`${(todo.doneAt) ? 'todos-full' : 'todos'}`}
-                    onClick={() => this.onToggleDone((todo.id))}>
+                    onClick={() => onToggleDone((todo.id, note.id))}>
                 </div>
-
-                {console.log(todo)}
 
                 <span
                     contentEditable
