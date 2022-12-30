@@ -69,14 +69,15 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onT
             <li className="todo-item"
                 key={todo.id}>
 
-                <div className={`${(todo.doneAt) ? 'todos-full' : 'todos'}`}
+                {console.log('todo.doneAt',todo.id, todo.doneAt)}
+                <div className={`${todo.doneAt ? 'todos-full' : 'todos'}`}
                     onClick={() => onToggleDone(todo.id, note.id)}>
                 </div>
 
                 <span
                     contentEditable
                     suppressContentEditableWarning={true}
-                    className={`${(todo.isDone) ? 'todo-done' : ''}`}
+                    className={`${todo.doneAt ? 'todo-done' : ''}`}
                     onBlur={(e) => getTodoFromBlur(e, todo.id, note.id)}>
                     {todo.txt}</span>
 
