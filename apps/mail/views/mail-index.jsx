@@ -64,7 +64,7 @@ export function MailIndex() {
     }
     function onCloseMail() {
         setIsMailOpen(false)
-        navigate('/mail')
+        navigate('/mail/mailList')
     }
 
     function onOpenMail(mailId) {

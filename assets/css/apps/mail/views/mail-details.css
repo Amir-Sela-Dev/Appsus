@@ -44,7 +44,13 @@
     justify-content: center;
 }
 
-.sent-from {
+.info {
+    justify-content: space-between;
+}
+
+
+.full-date {
+    font-size: 12px;
     padding-inline-end: 20%;
 }
 

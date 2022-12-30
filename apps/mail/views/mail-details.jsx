@@ -39,7 +39,20 @@ export function MailDetails({ onCloseMail }) {
                 console.log('Had issues removing', err)
                 showErrorMsg('Could not remove mail, try again please!')
             })
+    }
 
+    function getTime() {
+        let date = new Date(mail.sentAt)
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = date.toLocaleString('en-US', { month: 'short' }) + ' ' + date.getDate() + ' ' + hours + ':' + minutes + ' ' + ampm
+        return strTime;
+
+        return
     }
 
 
@@ -61,7 +74,7 @@ export function MailDetails({ onCloseMail }) {
         <div className="seocend-row flex">
             <div className="info flex">
                 <div className="sent-from">{mail.from}</div>
-                <div className="full-date">{mail.sentAt}</div>
+                <div className="full-date">{getTime()}</div>
             </div>
             <div className="sent-to">{(mail.to === 'user@appsus.com') ? 'To me' : mail.to}</div>
         </div>
