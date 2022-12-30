@@ -4,7 +4,7 @@ export function MailList({ mails, onRemoveMail }) {
 
 
 
-    return <table className="mails-list" width="100%">
+    return <table className="mails-list" width="100%" >
         <thead>
 
         </thead>
