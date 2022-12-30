@@ -7,6 +7,7 @@ import { NoteList } from "../cmps/note-list.jsx";
 import { NoteAdd } from "../cmps/note-add.jsx";
 import { NoteTxt } from "../cmps/note-txt.jsx";
 import { NoteImg } from "../cmps/note-img.jsx";
+import { NoteTodos } from "../cmps/note-todes.jsx";
 // import { NoteHeader } from "../cmps/note-header.jsx";
 
 export function NoteIndex() {
@@ -73,7 +74,7 @@ export function NoteIndex() {
 
     function onToggleDone(todoId, noteId) {
         noteService.todoToggleDone(todoId, noteId)
-        .then(setToggleTodo)
+            .then(setToggleTodo)
     }
 
     function onCreatCanvas() {
@@ -90,23 +91,20 @@ export function NoteIndex() {
         <hr></hr>
         <div className="main-layout">
             {type === '' && <NoteAdd
-                onAddNote={onAddNote}
-                onCreatTodo={onCreatTodo}
-                onCreatCanvas={onCreatCanvas}
-                onCreatImg={onCreatImg}
                 onRenderComp={onRenderComp} />}
 
             {type === 'txt' && < NoteTxt
                 onAddNote={onAddNote}
-                onCreatTodo={onCreatTodo}
-                onCreatCanvas={onCreatCanvas}
-                onCreatImg={onCreatImg} />}
+                onRenderComp={onRenderComp}
+            />}
 
             {type === 'img' && <NoteImg
                 onAddNote={onAddNote}
-                onCreatTodo={onCreatTodo}
-                onCreatCanvas={onCreatCanvas}
-                onCreatImg={onCreatImg}
+                onRenderComp={onRenderComp}
+            />}
+
+            {type === 'todos' && <NoteTodos
+                onAddNote={onAddNote}
                 onRenderComp={onRenderComp}
             />}
 

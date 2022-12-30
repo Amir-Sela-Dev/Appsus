@@ -4,6 +4,11 @@
 }
 
 .menu-icon-wrap {
+    background: url(./img/menu.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
     height: 25px;
     width: 25px;
+    margin: 0 25px;
 }
