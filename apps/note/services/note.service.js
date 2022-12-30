@@ -98,15 +98,17 @@ function getDefaultFilter() {
 
     return { "info.txt": '', type: '', isPinned: '' }
 }
-
+// 
 function textToTodos(txt) {
-    const newTodosTxt = txt.split()
+    const newTodosTxt = txt.split(',')
     const newTodos = []
-    newTodosTxt.map(txt => {
+    console.log('BBBbb', newTodosTxt)
+    newTodosTxt.map(todoTxt => {
+        console.log('CCCCCCCCCC',todoTxt)
         let newTodo = {
             id: utilService.makeId(),
-            txt,
-            doneAt: Date.now()
+            txt: todoTxt,
+            doneAt: null
         }
         newTodos.push(newTodo)
     })
