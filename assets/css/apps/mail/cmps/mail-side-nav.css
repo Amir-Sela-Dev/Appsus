@@ -29,11 +29,10 @@
 
 }
 
-.nav-inbox {
+.is-clicked {
     background-color: #d3e3fd;
     color: #001d35;
     font-weight: 700;
-
 }
 
 .inbox {

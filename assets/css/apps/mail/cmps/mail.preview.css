@@ -11,12 +11,7 @@
 }
 
 .mail-row:hover {
-    /* outline-block: 1.8px solid #e1e7ee; */
     outline: 2px solid #e1e7ee;
-}
-
-.mail-row:hover * {
-    opacity: 1;
 }
 
 .read {
@@ -40,12 +35,20 @@
 
 
 
+
+
 .star {
-    margin-inline-start: 5px;
     text-align: center;
+    justify-content: center;
 }
 
-.star:hover {
+.starred:hover {
+    background-color: rgba(186, 186, 186, 0.689);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.unStarred:hover {
     background-color: rgba(186, 186, 186, 0.689);
     border-radius: 50%;
     transition: 0.5s;
@@ -84,4 +87,48 @@
 .open-envelop {
     background-image: url("/assets/img/open-envelop.png");
     opacity: 0;
+}
+
+
+.mail-row:hover .trash {
+    opacity: 1;
+}
+
+.mail-row:hover .close-envelop {
+    opacity: 1;
+}
+
+.close-envelop:hover {
+    background-color: rgba(186, 186, 186, 0.689);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.open-envelop:hover {
+    background-color: rgba(186, 186, 186, 0.689);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.trash:hover {
+    background-color: rgba(186, 186, 186, 0.689);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+
+.mail-row:hover .open-envelop {
+    opacity: 1;
+}
+
+.mail-row:hover .time {
+    opacity: 0;
+}
+
+.starred,
+.unStarred,
+.trash,
+.open-envelop,
+.close-envelop {
+    cursor: pointer;
 }
