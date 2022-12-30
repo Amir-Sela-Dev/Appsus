@@ -1,7 +1,85 @@
 .mail-details {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    grid-template-rows: 48px 56px 60px 1fr;
+    align-items: center;
+    background-color: white;
+}
+
+.mail-btns {
+    grid-row: 1/1;
+    grid-column: 2/2;
+    align-items: center;
 }
 
 .remove {
     opacity: 1;
+    cursor: pointer;
+}
+
+.go-back {
+    background-image: url("/assets/img/left-arrow.png");
+    grid-column: 1/1;
+    grid-row: 1/1;
+    justify-self: center;
+    cursor: pointer;
+}
+
+
+.first-row {
+    grid-row: 2/2;
+    grid-column: 2/2;
+    display: flex;
+    align-items: center;
+}
+
+.mail-main-content .title {
+    font-size: 22px;
+}
+
+.seocend-row {
+    grid-row: 3/3;
+    grid-column: 2/2;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sent-from {
+    padding-inline-end: 20%;
+}
+
+.mail-status {
+    background-color: #dddddd;
+    padding: 2px;
+    border-radius: 5px;
+    margin-inline-start: 10px;
+}
+
+
+.mail-body {
+    grid-row: 4/4;
+    grid-column: 2/2;
+    display: flex;
+    background-color: #f1f8ff;
+    justify-content: center;
+}
+
+.mail-body textarea {
+    width: 80%;
+    background-color: white;
+    border: none;
+    resize: none;
+    padding-inline: 20px;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.user-icon {
+    background-image: url("/assets/img/user.png");
+    width: 40px;
+    height: 40px;
+    grid-column: 1/2;
+    grid-row: 3/3;
+    justify-self: center;
+
 }

@@ -3,11 +3,11 @@ const { useState, useEffect } = React
 import { mailService } from '../services/mail.service.js';
 
 
-export function SideNav({ onSetFilterBy, onToogleComposeMail, filterBy }) {
+export function SideNav({ onSetFilterBy, onToogleComposeMail, onCloseMail }) {
 
 
     function onHandleChange(field, value) {
-
+        onCloseMail()
         console.log(field, value)
         onSetFilterBy(field, value)
     }

@@ -1,12 +1,12 @@
 const { useEffect, useState } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
+import { SideNav } from '../cmps/mail-side-nav.jsx';
 import { mailService } from './../services/mail.service.js';
 
 
-export function MailDetails() {
+export function MailDetails({ onCloseMail }) {
     const [mail, setMail] = useState(null)
-    // const [nextBookId, setNextBookId] = useState(null)
     const { mailId } = useParams()
     const navigate = useNavigate()
 
@@ -21,17 +21,18 @@ export function MailDetails() {
             .then((mail) => setMail(mail))
             .catch((err) => {
                 console.log('Had issues in book details', err)
-                navigate('/mail')
+                onCloseMail()
             })
     }
 
     function onGoBack() {
-        navigate('/mail')
+        onCloseMail()
     }
 
     function onRemoveMail(mailId) {
+        console.log(mailId);
         mailService.remove(mailId).then(() => {
-            navigate('/mail')
+            onCloseMail()
             showSuccessMsg('mail removed!')
         })
             .catch((err) => {
@@ -47,18 +48,24 @@ export function MailDetails() {
 
 
     if (!mail) return <div>Loading...</div>
-    return <section className="mail-details flex">
-        <div className="mail-main-content">
-            <div className="btns">
-                <button className="go-back" onClick={() => { onGoBack() }} >Back</button>
-                <button className="remove trash icon" onClick={() => { onRemoveMail(mailId) }}></button>
-            </div>
-            <div className="title"><h2>{mail.subject}</h2></div>
-            <div className="user-icon"> {mail.status}</div>
-            <div className="sent-from">{mail.from}</div>
-            <div className="sent-to">{(mail.to === 'user@appsus.com') ? 'To me' : mail.to}</div>
-            <div className="mail-body"> <p>{mail.body}</p></div>
+    return <section className="mail-details">
+        <div className="user-icon icon"></div>
+        <div className="go-back icon" onClick={() => { onGoBack() }} ></div>
+        <div className="mail-btns flex">
+            <div className="remove trash icon" onClick={() => { onRemoveMail(mailId) }}></div>
         </div>
+        <div className="first-row flex">
+            <div className="title"><h2>{mail.subject}</h2></div>
+            <div className="mail-status">{mail.status}</div>
+        </div>
+        <div className="seocend-row flex">
+            <div className="info flex">
+                <div className="sent-from">{mail.from}</div>
+                <div className="full-date">{mail.sentAt}</div>
+            </div>
+            <div className="sent-to">{(mail.to === 'user@appsus.com') ? 'To me' : mail.to}</div>
+        </div>
+        <div className="mail-body"> <textarea name="" id="" cols="50" rows="20" disabled>{mail.body}</textarea> </div>
 
 
 
