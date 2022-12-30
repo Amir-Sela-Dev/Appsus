@@ -34,8 +34,8 @@ body {
     padding: 0;
     columns: 5;
     column-width: 240px;
-    column-gap: 20px;
-    width: 1300px;
+    column-gap: 10px;
+    width: 100%;
 }
 
 .note-title {
@@ -61,6 +61,7 @@ body {
 
 .note-preview {
     padding: 12px 16px;
+    border-radius: 8px;
 }
 
 .note-btn {

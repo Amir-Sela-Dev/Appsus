@@ -17,15 +17,17 @@ export function NoteTodos({ onRenderComp, onAddNote }) {
     function getValue({ target }) {
         let { value } = target
         if (!value) return
-        const newTodos = noteService.textToTodos(value)
-        valueToAdd = newTodos
+        valueToAdd = value
     }
 
     function addNoteTodos(todos) {
         console.log(todos)
         const newNote = noteService.getEmptyNote()
         if (!newNote.info.todos) newNote.info.todos = []
-        newNote.info.todos.push(todos)
+        console.log('AAAAAAAA', newNote.info.todos)
+        newNote.info.todos = todos
+        console.log('todos', todos)
+        console.log('newNote', newNote)
         noteService.save(newNote).then(onAddNote)
     }
 
@@ -42,7 +44,9 @@ export function NoteTodos({ onRenderComp, onAddNote }) {
         if (!valueToAdd) return
         let isClicked = true
         if (isClicked) {
-            addNoteTodos(valueToAdd)
+            console.log(valueToAdd)
+            const newTodos = noteService.textToTodos(valueToAdd)
+            addNoteTodos(newTodos)
             valueToAdd = ''
             inputEl.current.value = ''
         }
