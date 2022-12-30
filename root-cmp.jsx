@@ -20,7 +20,7 @@ export function App() {
                 <Route path="/about" element={<About />} />
 
                 <Route path="/mail" element={<MailIndex />} >
-                    {/* <Route path="/mail/mailList" element={<MailList />} /> */}
+                    <Route path="/mail/mailList" element={<MailList />} />
                     <Route element={<MailDetails />} path="/mail/:mailId" />
                 </Route>
                 <Route path="/note" element={<NoteIndex />} />

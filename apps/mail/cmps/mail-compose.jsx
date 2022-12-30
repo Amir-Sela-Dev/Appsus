@@ -72,7 +72,6 @@ export function MailCompose({ onToogleComposeMail }) {
 
                 <div className="compuse-btns">
                     <button className="send">Send</button>
-                    <button className="trash icon compose"></button>
                 </div>
             </form>
         </div>
