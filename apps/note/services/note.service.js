@@ -89,7 +89,7 @@ function createNotes() {
 
             },
             {
-                id: 'n101',
+                id: utilService.makeId(),
                 createdAt: 1112222,
                 type: 'note-txt',
                 isPinned: true,
@@ -101,7 +101,7 @@ function createNotes() {
                 }
             },
             {
-                id: 'n102',
+                id: utilService.makeId(),
                 type: 'note-img',
                 isPinned: false,
                 info: {
@@ -110,14 +110,14 @@ function createNotes() {
                 },
             },
             {
-                id: 'n103',
+                id: utilService.makeId(),
                 type: 'note-todos',
                 isPinned: false,
                 info: {
                     title: 'Todo\'s',
                     todos: [
-                        { txt: 'Driving liscence', doneAt: null },
-                        { txt: 'Coding power', doneAt: 187111111 }
+                        { id: utilService.makeId(), txt: 'Driving liscence', doneAt: null },
+                        { id: utilService.makeId(), txt: 'Coding power', doneAt: 187111111 }
                     ]
                 }
             },

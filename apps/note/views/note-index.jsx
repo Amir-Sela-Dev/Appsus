@@ -64,6 +64,12 @@ export function NoteIndex() {
         console.log('Creat Todo')
     }
 
+    function onDeletTodo(todoId, noteId) {
+
+        console.log('todoId', todoId)
+        console.log('noteId', noteId)
+    }
+
     function onCreatCanvas() {
         console.log('Creat Canvas')
     }
@@ -116,7 +122,7 @@ export function NoteIndex() {
             <NoteList notes={notes}
                 onRemoveNote={onRemoveNote}
                 onPinnedNote={onPinnedNote}
-
+                onDeletTodo={onDeletTodo}
             />
         </div>
     </section>
