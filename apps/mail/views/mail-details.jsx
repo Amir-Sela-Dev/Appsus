@@ -7,12 +7,14 @@ import { mailService } from './../services/mail.service.js';
 
 export function MailDetails({ onCloseMail, onRemoveMail }) {
     const [mail, setMail] = useState(null)
+    const [isStarred, setIsStarred] = useState(null)
+    const [isRead, setIsRead] = useState(null)
     const { mailId } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadMail()
-    }, [mailId, mail])
+    }, [mailId])
 
 
 
@@ -36,12 +38,20 @@ export function MailDetails({ onCloseMail, onRemoveMail }) {
     function onStarMail() {
         mail.isStarred = !mail.isStarred
         mailService.save(mail)
+            .then(mail => {
+                setIsStarred(mail.isStarred)
+            })
     }
 
     function onToogleRead() {
         mail.isRead = !mail.isRead
         mailService.save(mail)
+            .then(mail => {
+                setIsRead(mail.isRead)
+            })
     }
+
+
 
 
 
@@ -59,6 +69,8 @@ export function MailDetails({ onCloseMail, onRemoveMail }) {
 
 
 
+
+    console.log('render from details');
 
 
 
