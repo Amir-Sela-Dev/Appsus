@@ -58,18 +58,11 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onT
         noteService.save(note).then(setSelectedColor)
     }
 
-    // function onToggleDone(todoId, noteId) {
-    //     console.log('Done')
-    //     console.log('todoId', todoId)
-    //     console.log('noteId', noteId)
-    // }
-
     function getTodos() {
         const todos = note.info.todos.map(todo =>
             <li className="todo-item"
                 key={todo.id}>
 
-                {console.log('todo.doneAt',todo.id, todo.doneAt)}
                 <div className={`${todo.doneAt ? 'todos-full' : 'todos'}`}
                     onClick={() => onToggleDone(todo.id, note.id)}>
                 </div>

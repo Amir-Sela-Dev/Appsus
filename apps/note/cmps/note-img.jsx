@@ -1,9 +1,10 @@
 import { noteService } from "../services/note.service.js"
 const { useEffect, useRef } = React
-export function NoteImg({ onAddNote }) {
+export function NoteImg({ onRenderComp, onAddNote }) {
 
     const inputEl = useRef()
     let valueToAdd
+    addBodyEv()
 
     useEffect(() => {
         addNoteByClick()
@@ -18,13 +19,6 @@ export function NoteImg({ onAddNote }) {
         console.log(valueToAdd)
     }
 
-    function addNote(txt) {
-        const newNote = noteService.getEmptyNote()
-        newNote.info.txt = txt
-        newNote.type = 'note-txt'
-        noteService.save(newNote).then(onAddNote)
-    }
-
     function addImg(url) {
         const newNote = noteService.getEmptyNote()
         newNote.info.url = url
@@ -32,8 +26,10 @@ export function NoteImg({ onAddNote }) {
         noteService.save(newNote).then(onAddNote)
     }
 
-    document.body.style.minHeight = '100vh'
-    document.body.addEventListener('click', addNoteByClick)
+    function addBodyEv() {
+        document.body.style.minHeight = '100vh'
+        document.body.addEventListener('click', addNoteByClick)
+    }
 
     function removeBodyEv() {
         document.body.removeEventListener('click', addNoteByClick)
@@ -43,13 +39,16 @@ export function NoteImg({ onAddNote }) {
         if (!valueToAdd) return
         let isClicked = true
         if (isClicked) {
-            // addNote(valueToAdd)
-            // https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)
+            // https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)         
             addImg(valueToAdd)
             valueToAdd = ''
             inputEl.current.value = ''
         }
         isClicked = false
+    }
+
+    function onCloseTxtNote() {
+        onRenderComp('')
     }
 
     console.log(valueToAdd)
@@ -64,6 +63,7 @@ export function NoteImg({ onAddNote }) {
                 onChange={getValue}
                 ref={inputEl}
             />
+            <button type='button' className="img-close-btn" onClick={onCloseTxtNote}>Close</button>
         </form>
     </section>
 }

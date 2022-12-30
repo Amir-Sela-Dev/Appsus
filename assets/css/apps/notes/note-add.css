@@ -80,7 +80,6 @@
     display: inline-block;
 }
 
-
 .todos {
     background: url(./img/todo.svg);
     Background-size: cover;
@@ -88,6 +87,7 @@
     align-self: center;
     height: 23px;
     width: 23px;
+    margin-right: 10px;
 }
 
 .todos-full {
@@ -97,6 +97,7 @@
     align-self: center;
     height: 23px;
     width: 23px;
+    margin-right: 10px;
 }
 
 .delete-todo {
@@ -123,4 +124,28 @@
     position: relative;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.todo-done {
+    text-decoration: line-through;
+}
+
+.note-close-btn {
+    background-color: transparent;
+    font-family: Product;
+    font-size: 1rem;
+    position: relative;
+    border: none;
+    right: 101px;
+    top: 38px;
+}
+
+.img-close-btn {
+    background-color: transparent;
+    font-family: Product;
+    font-size: 1rem;
+    position: relative;
+    border: none;
+    right: 101px;
 }

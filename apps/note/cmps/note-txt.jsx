@@ -2,9 +2,10 @@ import { noteService } from "../services/note.service.js"
 const { useEffect, useRef } = React
 
 
-export function NoteTxt({ onAddNote }) {
+export function NoteTxt({ onRenderComp, onAddNote }) {
     const inputEl = useRef()
     let valueToAdd
+    addBodyEv()
 
     useEffect(() => {
         addNoteByClick()
@@ -16,8 +17,6 @@ export function NoteTxt({ onAddNote }) {
         let { value } = target
         if (!value) return
         valueToAdd = value
-
-        // addNote(value)
     }
 
     function addNote(txt) {
@@ -26,8 +25,10 @@ export function NoteTxt({ onAddNote }) {
         noteService.save(newNote).then(onAddNote)
     }
 
-    document.body.style.minHeight = '100vh'
-    document.body.addEventListener('click', addNoteByClick)
+    function addBodyEv() {
+        document.body.style.minHeight = '100vh'
+        document.body.addEventListener('click', addNoteByClick)
+    }
 
     function removeBodyEv() {
         document.body.removeEventListener('click', addNoteByClick)
@@ -44,6 +45,10 @@ export function NoteTxt({ onAddNote }) {
         isClicked = false
     }
 
+    function onCloseTxtNote() {
+        onRenderComp('')
+    }
+
     console.log(valueToAdd)
     return <section className="note-add">
         <form className="add-wrap" >
@@ -56,7 +61,7 @@ export function NoteTxt({ onAddNote }) {
                 onChange={getValue}
                 ref={inputEl}
             />
-
+            <button type='button' className="note-close-btn" onClick={onCloseTxtNote}>Close</button>
         </form>
     </section>
 }
