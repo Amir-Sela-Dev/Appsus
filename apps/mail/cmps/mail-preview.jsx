@@ -36,14 +36,18 @@ export function MailPreview({ mail, onRemoveMail, onOpenMail }) {
 
     function getTime() {
         var date = new Date(mail.sentAt)
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        var strTime = hours + ':' + minutes + ' ' + ampm;
-        return strTime;
+        if ((new Date()).toDateString() !== date.toDateString()) {
+            return date.toLocaleString('en-US', { month: 'short' }) + ' ' + date.getDate()
+        } else {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }
     }
 
     return <Fragment>
