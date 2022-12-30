@@ -14,13 +14,15 @@ export function NoteIndex() {
     const [notes, setNotes] = useState([])
     let [addNote, setaddNote] = useState(false)
     let [pinNote, setPinNote] = useState(false)
+    let [removeTodo, setremoveTodo] = useState(false)
+    let [toggleTodo, setToggleTodo] = useState(false)
     let [type, settype] = useState('')
 
     useEffect(() => {
         loadNotes()
 
         return setPinNote(false)
-    }, [filterBy, addNote, pinNote, type])
+    }, [filterBy, addNote, pinNote, type, removeTodo, toggleTodo])
 
     function loadNotes() {
         noteService.query(filterBy)
@@ -64,25 +66,25 @@ export function NoteIndex() {
         console.log('Creat Todo')
     }
 
+    function onDeletTodo(todoId, noteId) {
+        noteService.removeTodo(noteId, todoId)
+            .then(() => setremoveTodo(true))
+    }
+
+    function onToggleDone(todoId, noteId) {
+        console.log('Toggle Done')
+        console.log(noteId)
+        console.log(todoId)
+        noteService.todoToggleDone(todoId, noteId)
+            .then(() => setToggleTodo(true))
+    }
+
     function onCreatCanvas() {
         console.log('Creat Canvas')
     }
 
     function onCreatImg(type) {
         settype(type)
-    }
-
-    function getCmpByType(type) {
-        switch (type) {
-            case 'note-txt':
-                return <NoteTxt dataProps={{ ...dataProps }} />
-            case 'note-todos':
-                return <NoteTodos dataProps={{ ...dataProps }} />
-            case 'note-img':
-                return <NoteImg dataProps={{ ...dataProps }} />
-            case 'note-video':
-                return <NoteVideo dataProps={{ ...dataProps }} />
-        }
     }
 
     console.log(notes)
@@ -116,7 +118,8 @@ export function NoteIndex() {
             <NoteList notes={notes}
                 onRemoveNote={onRemoveNote}
                 onPinnedNote={onPinnedNote}
-
+                onDeletTodo={onDeletTodo}
+                onToggleDone={onToggleDone}
             />
         </div>
     </section>

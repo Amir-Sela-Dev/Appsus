@@ -79,3 +79,48 @@
 .inline-block {
     display: inline-block;
 }
+
+
+.todos {
+    background: url(./img/todo.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    height: 23px;
+    width: 23px;
+}
+
+.todos-full {
+    background: url(./img/todo-full.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    height: 23px;
+    width: 23px;
+}
+
+.delete-todo {
+    background: url(./img/small-x.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todos-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}

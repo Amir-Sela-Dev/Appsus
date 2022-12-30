@@ -9,7 +9,9 @@ export const noteService = {
     remove,
     save,
     get,
-    getEmptyNote
+    getEmptyNote,
+    removeTodo,
+    todoToggleDone
 }
 
 const NOTE_KEY = 'notesDB'
@@ -37,6 +39,27 @@ function query(filterBy = getDefaultFilter()) {
 
 function remove(noteId) {
     return storageService.remove(NOTE_KEY, noteId)
+}
+
+function removeTodo(noteId, todoId) {
+    return get(noteId).then(note => {
+        const { info } = note
+        const { todos } = info
+        const todoIdx = todos.findIndex(todo => todo.id === todoId)
+        todos.splice(todoIdx, 1)
+        return save(note)
+    })
+}
+
+function todoToggleDone(todoId, noteId) {
+    return get(noteId).then(note => {
+        const { info } = note
+        const { todos } = info
+        const todoIdx = todos.findIndex(todo => todo.id === todoId)
+        todos[todoIdx].doneAt = todos[todoIdx].doneAt ? null : Date.now()
+        console.log('todos after', todos)
+        return save(note)
+    })
 }
 
 function get(noteId) {
@@ -89,7 +112,7 @@ function createNotes() {
 
             },
             {
-                id: 'n101',
+                id: utilService.makeId(),
                 createdAt: 1112222,
                 type: 'note-txt',
                 isPinned: true,
@@ -101,7 +124,7 @@ function createNotes() {
                 }
             },
             {
-                id: 'n102',
+                id: utilService.makeId(),
                 type: 'note-img',
                 isPinned: false,
                 info: {
@@ -110,14 +133,14 @@ function createNotes() {
                 },
             },
             {
-                id: 'n103',
+                id: utilService.makeId(),
                 type: 'note-todos',
                 isPinned: false,
                 info: {
                     title: 'Todo\'s',
                     todos: [
-                        { txt: 'Driving liscence', doneAt: null },
-                        { txt: 'Coding power', doneAt: 187111111 }
+                        { id: utilService.makeId(), txt: 'Driving liscence', doneAt: null },
+                        { id: utilService.makeId(), txt: 'Coding power', doneAt: 187111111 }
                     ]
                 }
             },
