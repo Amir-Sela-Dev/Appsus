@@ -5,20 +5,24 @@ import { SideNav } from '../cmps/mail-side-nav.jsx';
 import { mailService } from './../services/mail.service.js';
 
 
-export function MailDetails({ onCloseMail }) {
+export function MailDetails({ onCloseMail, onRemoveMail }) {
     const [mail, setMail] = useState(null)
     const { mailId } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadMail()
-    }, [mailId])
+    }, [mailId, mail])
 
 
 
     function loadMail() {
         mailService.get(mailId)
-            .then((mail) => setMail(mail))
+            .then((mail) => {
+                setMail(mail)
+                mail.isRead = true
+                mailService.save(mail)
+            })
             .catch((err) => {
                 console.log('Had issues in book details', err)
                 onCloseMail()
@@ -29,17 +33,17 @@ export function MailDetails({ onCloseMail }) {
         onCloseMail()
     }
 
-    function onRemoveMail(mailId) {
-        console.log(mailId);
-        mailService.remove(mailId).then(() => {
-            onCloseMail()
-            showSuccessMsg('mail removed!')
-        })
-            .catch((err) => {
-                console.log('Had issues removing', err)
-                showErrorMsg('Could not remove mail, try again please!')
-            })
+    function onStarMail() {
+        mail.isStarred = !mail.isStarred
+        mailService.save(mail)
     }
+
+    function onToogleRead() {
+        mail.isRead = !mail.isRead
+        mailService.save(mail)
+    }
+
+
 
     function getTime() {
         let date = new Date(mail.sentAt)
@@ -51,8 +55,6 @@ export function MailDetails({ onCloseMail }) {
         minutes = minutes < 10 ? '0' + minutes : minutes;
         var strTime = date.toLocaleString('en-US', { month: 'short' }) + ' ' + date.getDate() + ' ' + hours + ':' + minutes + ' ' + ampm
         return strTime;
-
-        return
     }
 
 
@@ -66,6 +68,8 @@ export function MailDetails({ onCloseMail }) {
         <div className="go-back icon" onClick={() => { onGoBack() }} ></div>
         <div className="mail-btns flex">
             <div className="remove trash icon" onClick={() => { onRemoveMail(mailId) }}></div>
+            <div onClick={() => { onStarMail() }}>{(mail.isStarred) ? <div className='starred icon'></div> : <div className='unStarred icon'></div>}</div>
+            <div className="mail-read-unread" onClick={() => { onToogleRead() }}>{(mail.isRead) ? <div className='open-envelop icon'></div> : <div className='close-envelop icon'></div>}</div>
         </div>
         <div className="first-row flex">
             <div className="title"><h2>{mail.subject}</h2></div>

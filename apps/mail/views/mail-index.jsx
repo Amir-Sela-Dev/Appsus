@@ -18,11 +18,13 @@ export function MailIndex() {
     const [isCompose, setIsCompose] = useState(false)
     const [isMailOpen, setIsMailOpen] = useState(false)
     const navigate = useNavigate()
+    const { mailId } = useParams()
 
 
     useEffect(() => {
+        if (mailId) onOpenMail(mailId)
         loadMails()
-    }, [filterBy, isCompose])
+    }, [filterBy, isCompose, mailId])
 
     function loadMails() {
         console.log('filterby from load', filterBy);
@@ -32,11 +34,23 @@ export function MailIndex() {
     }
 
     function onRemoveMail(mailId) {
-        mailService.remove(mailId).then(() => {
-            const updatedMails = mails.filter(mail => mail.id !== mailId)
-            setMails(updatedMails)
-            showSuccessMsg('mail removed!')
-        })
+        mailService.get(mailId)
+            .then(mail => {
+                onCloseMail()
+                if (mail.status === 'trash') {
+                    mailService.remove(mailId).then(() => {
+                        const updatedMails = mails.filter(mail => mail.id !== mailId)
+                        setMails(updatedMails)
+                        showSuccessMsg('mail removed!')
+                    })
+                } else {
+                    mail.status = 'trash'
+                    mailService.save(mail)
+                    const updatedMails = mails.filter(mail => mail.id !== mailId)
+                    setMails(updatedMails)
+                    showSuccessMsg('mail removed!')
+                }
+            })
             .catch((err) => {
                 console.log('Had issues removing', err)
                 showErrorMsg('Could not remove mail, try again please!')
@@ -78,7 +92,7 @@ export function MailIndex() {
         <MailFilter onTxtSetFilterBy={onTxtSetFilterBy} filterBy={filterBy} />
         {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />}
         {(!isMailOpen) && <MailList mails={mails} onRemoveMail={onRemoveMail} onOpenMail={onOpenMail} />}
-        {(isMailOpen) && <MailDetails onCloseMail={onCloseMail} />}
+        {(isMailOpen) && <MailDetails onCloseMail={onCloseMail} onRemoveMail={onRemoveMail} />}
 
     </section>
 }
