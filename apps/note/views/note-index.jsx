@@ -72,11 +72,8 @@ export function NoteIndex() {
     }
 
     function onToggleDone(todoId, noteId) {
-        console.log('Toggle Done')
-        console.log(noteId)
-        console.log(todoId)
         noteService.todoToggleDone(todoId, noteId)
-            .then(() => setToggleTodo(true))
+        .then(setToggleTodo)
     }
 
     function onCreatCanvas() {

@@ -56,7 +56,12 @@ function todoToggleDone(todoId, noteId) {
         const { info } = note
         const { todos } = info
         const todoIdx = todos.findIndex(todo => todo.id === todoId)
-        todos[todoIdx].doneAt = todos[todoIdx].doneAt ? null : Date.now()
+        let { doneAt } = todos[todoIdx]
+        console.log('doneAt service', todoId, doneAt)
+        doneAt = doneAt ? null : Date.now()
+        console.log('doneAt service', todoId, doneAt)
+        note.info.todos[todoIdx].doneAt = doneAt
+        console.log('doneAt service 2', note.info.todos[todoIdx].doneAt)
         console.log('todos after', todos)
         return save(note)
     })
