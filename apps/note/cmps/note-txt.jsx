@@ -20,6 +20,13 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
         valueToAdd = value
     }
 
+    function handleKeyDown(ev) {
+        console.log(ev.key)
+        if (ev.key === 'Enter') {
+            addNoteByClick()
+        }
+    }
+
     function addNote(txt) {
         const newNote = noteService.getEmptyNote()
         newNote.info.txt = txt
@@ -46,6 +53,10 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
         isClicked = false
     }
 
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
+
     function onCloseTxtNote() {
         onRenderComp('')
     }
@@ -55,7 +66,9 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
         onMouseEnter={() => setIsHoverToolBar(true)}
         onMouseLeave={() => setIsHoverToolBar(false)}
     >
-        <form className="add-wrap" >
+        <form className="add-wrap"
+            onSubmit={handleSubmit}
+        >
 
             <input type="text"
                 id="note-txt"
@@ -63,6 +76,7 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
                 name="note-txt"
                 placeholder="Take a note.."
                 onChange={getValue}
+                onKeyDown={handleKeyDown}
                 ref={inputEl}
             />
             <button type='button' className="note-close-btn" onClick={onCloseTxtNote}>Close</button>

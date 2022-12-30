@@ -104,7 +104,8 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onT
         {info.todos && <ul className="todos-list">{getTodos()}</ul>}
 
         <img className="note-img" src={info.url}></img>
-        {info.videoUrl && <section className="note-video" contentEditable>
+        {info.videoUrl && <section className="note-video"
+            contentEditable suppressContentEditableWarning={true}>
             <iframe width="250" height="200"
                 src={`//www.youtube.com/embed/${info.videoUrl}`}
             ></iframe>
