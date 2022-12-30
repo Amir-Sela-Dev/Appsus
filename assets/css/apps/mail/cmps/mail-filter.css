@@ -1,0 +1,30 @@
+.mail-filter {
+    /* width: 720px; */
+    width: 85%;
+    height: 46px;
+    border-radius: 8px;
+    background-color: #eaf1fb;
+    border: var(--mail-border-color) solid 1px;
+    display: flex;
+    align-items: center;
+}
+
+.search-filter {
+    font-size: 16px;
+    background-color: #eaf1fb;
+    border: none;
+    /* width: 568px; */
+    width: 100%;
+    height: 22px;
+}
+
+.search-filter::before {
+    background-color: white;
+    border: none;
+}
+
+.search {
+    background-image: url("/assets/img/search.png");
+    margin-inline: 8px;
+
+}

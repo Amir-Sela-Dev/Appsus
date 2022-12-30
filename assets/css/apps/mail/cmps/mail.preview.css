@@ -6,6 +6,8 @@
     cursor: pointer;
     height: 20px;
     padding-block: 10px;
+    padding-inline: 0;
+    width: 100%;
 }
 
 .mail-row:hover {
@@ -27,7 +29,7 @@
 
 }
 
-.title {
+.preview-title {
     padding-inline-start: 20px;
 }
 

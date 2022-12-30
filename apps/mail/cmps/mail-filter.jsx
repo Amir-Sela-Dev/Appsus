@@ -17,6 +17,7 @@ export function MailFilter({ onTxtSetFilterBy, filterBy }) {
 
 
     return <section className="mail-filter">
+        <div className="search icon"></div>
         <form onSubmit={onSubmitFilter}>
             <input type="text" className="search-filter"
                 id="txt"

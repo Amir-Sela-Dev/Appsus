@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { Link } = ReactRouterDOM
+const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { MailList } from '../cmps/mail-list.jsx';
 
@@ -8,6 +8,7 @@ import { eventBusService, showErrorMsg, showSuccessMsg } from '../../../services
 import { MailFilter } from '../cmps/mail-filter.jsx';
 import { SideNav } from '../cmps/mail-side-nav.jsx';
 import { MailCompose } from '../cmps/mail-compose.jsx';
+import { MailDetails } from './mail-details.jsx';
 
 
 
@@ -15,6 +16,9 @@ export function MailIndex() {
     const [mails, setMails] = useState([])
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCompose, setIsCompose] = useState(false)
+    const [isMailOpen, setIsMailOpen] = useState(false)
+    const navigate = useNavigate()
+
 
     useEffect(() => {
         loadMails()
@@ -58,16 +62,26 @@ export function MailIndex() {
     function onToogleComposeMail() {
         setIsCompose(!isCompose)
     }
+    function onCloseMail() {
+        setIsMailOpen(false)
+        navigate('/mail')
+    }
 
-    console.log('filterby from render', filterBy);
+    function onOpenMail(mailId) {
+        setIsMailOpen(true)
+        navigate(`/mail/${mailId}`)
+    }
+
     return <section className="mail-index">
 
-        <SideNav onSetFilterBy={onSetFilterBy} onToogleComposeMail={onToogleComposeMail} filterBy={filterBy} />
+        <SideNav onSetFilterBy={onSetFilterBy} onToogleComposeMail={onToogleComposeMail} filterBy={filterBy} onCloseMail={onCloseMail} />
         <MailFilter onTxtSetFilterBy={onTxtSetFilterBy} filterBy={filterBy} />
+        {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />}
+        {(!isMailOpen) && <MailList mails={mails} onRemoveMail={onRemoveMail} onOpenMail={onOpenMail} />}
+        {(isMailOpen) && <MailDetails onCloseMail={onCloseMail} />}
 
-        <MailList mails={mails} onRemoveMail={onRemoveMail} />
-        {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />
-        }
     </section>
 }
+
+
 
