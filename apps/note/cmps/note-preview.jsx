@@ -2,7 +2,7 @@ import { noteService } from "../services/note.service.js"
 
 const { useState } = React
 
-export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo }) {
+export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onToggleDone }) {
     const { info } = note
     const { isPinned } = note
     const [updateNoteDisplay, setUpdateNoteDisplay] = useState()
@@ -58,11 +58,11 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo }) {
         noteService.save(note).then(setSelectedColor)
     }
 
-    function onToggleDone(todoId, noteId) {
-        console.log('Done')
-        console.log('todoId', todoId)
-        console.log('noteId', noteId)
-    }
+    // function onToggleDone(todoId, noteId) {
+    //     console.log('Done')
+    //     console.log('todoId', todoId)
+    //     console.log('noteId', noteId)
+    // }
 
     function getTodos() {
         const todos = note.info.todos.map(todo =>
@@ -70,7 +70,7 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo }) {
                 key={todo.id}>
 
                 <div className={`${(todo.doneAt) ? 'todos-full' : 'todos'}`}
-                    onClick={() => onToggleDone((todo.id, note.id))}>
+                    onClick={() => onToggleDone(todo.id, note.id)}>
                 </div>
 
                 <span

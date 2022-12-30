@@ -15,13 +15,14 @@ export function NoteIndex() {
     let [addNote, setaddNote] = useState(false)
     let [pinNote, setPinNote] = useState(false)
     let [removeTodo, setremoveTodo] = useState(false)
+    let [toggleTodo, setToggleTodo] = useState(false)
     let [type, settype] = useState('')
 
     useEffect(() => {
         loadNotes()
 
         return setPinNote(false)
-    }, [filterBy, addNote, pinNote, type, removeTodo])
+    }, [filterBy, addNote, pinNote, type, removeTodo, toggleTodo])
 
     function loadNotes() {
         noteService.query(filterBy)
@@ -70,6 +71,14 @@ export function NoteIndex() {
             .then(() => setremoveTodo(true))
     }
 
+    function onToggleDone(todoId, noteId) {
+        console.log('Toggle Done')
+        console.log(noteId)
+        console.log(todoId)
+        noteService.todoToggleDone(todoId, noteId)
+            .then(() => setToggleTodo(true))
+    }
+
     function onCreatCanvas() {
         console.log('Creat Canvas')
     }
@@ -110,6 +119,7 @@ export function NoteIndex() {
                 onRemoveNote={onRemoveNote}
                 onPinnedNote={onPinnedNote}
                 onDeletTodo={onDeletTodo}
+                onToggleDone={onToggleDone}
             />
         </div>
     </section>

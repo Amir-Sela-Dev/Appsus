@@ -10,7 +10,8 @@ export const noteService = {
     save,
     get,
     getEmptyNote,
-    removeTodo
+    removeTodo,
+    todoToggleDone
 }
 
 const NOTE_KEY = 'notesDB'
@@ -44,10 +45,19 @@ function removeTodo(noteId, todoId) {
     return get(noteId).then(note => {
         const { info } = note
         const { todos } = info
-        console.log(todos)
         const todoIdx = todos.findIndex(todo => todo.id === todoId)
         todos.splice(todoIdx, 1)
-        console.log(todos)
+        return save(note)
+    })
+}
+
+function todoToggleDone(todoId, noteId) {
+    return get(noteId).then(note => {
+        const { info } = note
+        const { todos } = info
+        const todoIdx = todos.findIndex(todo => todo.id === todoId)
+        todos[todoIdx].doneAt = todos[todoIdx].doneAt ? null : Date.now()
+        console.log('todos after', todos)
         return save(note)
     })
 }
