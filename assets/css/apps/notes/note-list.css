@@ -204,3 +204,21 @@ body {
     font-size: 1.3rem;
 
 }
+
+@media (max-width: 715px) {
+    .main-layout {
+        margin: 0 10px
+    }
+
+}
+
+@media (max-width: 540px) {
+    .note {
+        width: 42vw;
+    }
+
+    .note-list{
+        font-size: 0.7rem;
+    }
+
+}
