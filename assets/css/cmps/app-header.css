@@ -7,6 +7,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
+    position: relative;
 }
 
 nav a {
@@ -26,4 +27,71 @@ nav a.active {
 .logo {
     height: 60px;
     padding-left: 20px;
+}
+
+.main-menu-btn {
+    background: url(/assets/img/menu-btn.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    height: 33px;
+    width: 33px;
+    margin: 20px;
+}
+
+.main-menu-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    /* width: 328px; */
+    z-index: 2000;
+    right: .7rem;
+    top: 5rem;
+    padding: 1.1rem;
+    text-align: center;
+    border-radius: 1rem;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-menu-note-icon {
+    background: url(/assets/img/keep.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    height: 45px;
+    width: 45px;
+    margin: 20px;
+}
+
+.main-menu-mail-icon {
+    background: url(/assets/img/gmain.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    height: 33px;
+    width: 45px;
+    margin: 20px;
+}
+
+.main-menu-about-icon {
+    background: url(/assets/img/about.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    height: 45px;
+    width: 45px;
+    margin: 20px;
+}
+
+.main-menu-home-icon {
+    background: url(/assets/img/google-home.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    height: 45px;
+    width: 45px;
+    margin: 20px;
 }
