@@ -19,6 +19,15 @@ export function NoteImg({ onRenderComp, onAddNote }) {
         console.log(valueToAdd)
     }
 
+
+    function handleKeyDown(ev) {
+
+        if (ev.key === 'Enter') {
+            // if (!titleToAdd) return
+            addNoteByClick()
+        }
+    }
+
     function addImg(url) {
         const newNote = noteService.getEmptyNote()
         newNote.info.url = url
@@ -51,9 +60,16 @@ export function NoteImg({ onRenderComp, onAddNote }) {
         onRenderComp('')
     }
 
+
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
+
     console.log(valueToAdd)
     return <section className="note-add">
-        <form className="add-wrap" >
+        <form className="add-wrap"
+            onSubmit={handleSubmit}
+        >
 
             <input type="text"
                 id="note-img"
@@ -61,6 +77,7 @@ export function NoteImg({ onRenderComp, onAddNote }) {
                 name="note-img"
                 placeholder="Image URL"
                 onChange={getValue}
+                onKeyDown={handleKeyDown}
                 ref={inputEl}
             />
             <button type='button' className="img-close-btn" onClick={onCloseTxtNote}>Close</button>

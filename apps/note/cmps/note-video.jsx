@@ -36,6 +36,14 @@ export function NoteVideo({ onRenderComp, onAddNote }) {
         document.body.removeEventListener('click', addNoteByClick)
     }
 
+    function handleKeyDown(ev) {
+
+        if (ev.key === 'Enter') {
+            // if (!titleToAdd) return
+            addNoteByClick()
+        }
+    }
+
     function addNoteByClick() {
         if (!valueToAdd) return
         let isClicked = true
@@ -59,9 +67,15 @@ export function NoteVideo({ onRenderComp, onAddNote }) {
         return splitUrl[1]
     }
 
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
+
     console.log(valueToAdd)
     return <section className="note-add">
-        <form className="add-wrap" >
+        <form className="add-wrap"
+            onSubmit={handleSubmit}
+        >
 
             <input type="text"
                 id="note-img"
@@ -69,6 +83,7 @@ export function NoteVideo({ onRenderComp, onAddNote }) {
                 name="note-img"
                 placeholder="Video URL"
                 onChange={getValue}
+                onKeyDown={handleKeyDown}
                 ref={inputEl}
             />
             <button type='button' className="img-close-btn" onClick={onCloseTxtNote}>Close</button>
