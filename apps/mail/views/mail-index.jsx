@@ -106,6 +106,8 @@ export function MailIndex() {
         {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />}
         {(!isMailOpen) && <MailList mails={mails} onRemoveMail={onRemoveMail} onOpenMail={onOpenMail} />}
         {(isMailOpen) && <MailDetails onCloseMail={onCloseMail} onRemoveMail={onRemoveMail} />}
+        <div className="index-compose" onClick={() => { onToogleComposeMail() }}> <div className="compose icon"></div> Compose</div>
+
     </section>
 }
 

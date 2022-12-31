@@ -38,6 +38,8 @@
 @media (max-width: 650px) {
     .menu-toogle-btn {
         opacity: 1;
+        font-size: 18px;
+        margin-inline: 10px;
     }
 
     .search {

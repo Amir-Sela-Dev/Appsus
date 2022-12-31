@@ -1,6 +1,6 @@
 .mail-details {
     display: grid;
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 72px 1fr 72px;
     grid-template-rows: 48px 56px 60px 1fr;
     align-items: center;
     background-color: white;
@@ -100,4 +100,15 @@
 
 .mail-read-unread>* {
     opacity: 1;
+}
+
+@media (max-width: 650px) {
+    .mail-details {
+        width: 100vw;
+    }
+
+    .mail-body {
+        grid-column: 1/4;
+    }
+
 }

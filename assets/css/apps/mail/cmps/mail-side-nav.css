@@ -93,7 +93,7 @@
 
 @media (max-width: 650px) {
     .mail-side-nav {
-        position: absolute;
+        position: fixed;
         transform: translatex(-100%);
         top: 0;
         left: 0;
@@ -116,6 +116,13 @@
     .menu-open {
         transform: translatex(0);
         pointer-events: auto;
+    }
+
+    .nav-compose {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
     }
 
 }
