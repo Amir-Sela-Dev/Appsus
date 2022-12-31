@@ -20,7 +20,7 @@ export function MailDetails({ onCloseMail, onRemoveMail }) {
 
     function loadMail() {
         mailService.get(mailId)
-            .then((mail) => {
+            .then(mail => {
                 setMail(mail)
                 mail.isRead = true
                 mailService.save(mail)

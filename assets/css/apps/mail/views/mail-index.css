@@ -26,3 +26,37 @@
 .mails-list {
     grid-area: mail-list;
 }
+
+@media (max-width: 650px) {
+    .mail-index {
+        grid-template-areas:
+            "   filter      filter"
+            "   mail-list      mail-list"
+        ;
+
+    }
+
+    .mails-list {
+        grid-column: 0/2;
+        grid-row: 2/3;
+        z-index: 2;
+        width: 100%;
+    }
+
+
+    .main-screen {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        inset: 0;
+        background-color: #121212db;
+        /* display: none; */
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.6s;
+        /* pointer-events: none; */
+        z-index: 101;
+    }
+
+
+}

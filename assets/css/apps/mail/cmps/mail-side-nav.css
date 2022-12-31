@@ -90,3 +90,32 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 3px 0px, rgba(60, 64, 67, 0.15) 0px 4px 8px 3px;
 
 }
+
+@media (max-width: 650px) {
+    .mail-side-nav {
+        position: absolute;
+        transform: translatex(-100%);
+        top: 0;
+        left: 0;
+        background: var(--main-header-color);
+        border-inline-start: 1px solid var(--mail-border-color);
+        width: 70%;
+        height: 100vh;
+        overflow: hidden;
+        transition: max-height 0.6s, box-shadow 0.6s;
+        z-index: 300;
+        transition: 0.4s;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 17%;
+        left: 0;
+    }
+
+    .menu-open {
+        transform: translatex(0);
+        pointer-events: auto;
+    }
+
+}
