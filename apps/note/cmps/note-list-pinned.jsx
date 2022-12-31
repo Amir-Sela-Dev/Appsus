@@ -2,13 +2,12 @@ const { Link } = ReactRouterDOM
 
 import { NotePreview } from "./note-preview.jsx";
 
-export function NoteList({ notes, onRemoveNote, onPinnedNote, onDeletTodo, onToggleDone }) {
+export function NoteListPinned({ notes, onRemoveNote, onPinnedNote, onDeletTodo, onToggleDone }) {
 
-    return <section className="note-list">
-
+    return <section className="note-list pinned-list">
         {
             notes.map(note => {
-                if (note.isPinned) return
+                if (!note.isPinned) return
                 return <div className={`note`} key={note.id}>
                     <NotePreview note={note}
                         onRemoveNote={onRemoveNote}
