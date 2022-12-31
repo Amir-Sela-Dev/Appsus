@@ -1,3 +1,7 @@
+.home {
+    font-family: roboto;
+}
+
 .home .hero {
     height: 23.4375rem;
     background-image: url("/assets/img/home-hero.jpg");
@@ -51,4 +55,48 @@
     background-size: cover;
     background-position: center center;
     position: relative;
+}
+
+
+.home .hero-img {
+    background-image: url("/assets/img/google-people.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    height: 15.4375rem;
+    width: 20.4375rem;
+    margin-inline: auto;
+    margin-bottom: 10vh;
+
+
+}
+
+
+.google-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.home-row1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-inline: 10vw;
+}
+
+.google-img img {
+    width: 40%;
+}
+
+.google-img h1 {
+    font-size: 2rem;
+    max-width: 40%;
+    text-align: center;
+    font-weight: 400;
 }
