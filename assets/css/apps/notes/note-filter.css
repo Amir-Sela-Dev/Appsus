@@ -3,6 +3,8 @@
     flex-direction: row;
     align-items: center;
     height: 64px;
+    margin-right: 80px;
+    margin-left: 80px;
 }
 
 /* search-box */

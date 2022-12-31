@@ -31,11 +31,7 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
     function handleKeyDown(ev) {
 
         if (ev.key === 'Enter') {
-            addNoteByClick()
-        }
-    }
-    function handleKeyDownText(ev) {
-        if (ev.key === 'Enter') {
+            // if (!titleToAdd) return
             addNoteByClick()
         }
     }
@@ -57,7 +53,7 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
     }
 
     function addNoteByClick() {
-        if (!titleToAdd || !valueToAdd) return
+        if (!titleToAdd && !valueToAdd) return
         let isClicked = true
         if (isClicked) {
             addNote(titleToAdd, valueToAdd)

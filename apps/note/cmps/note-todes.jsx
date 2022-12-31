@@ -40,6 +40,14 @@ export function NoteTodos({ onRenderComp, onAddNote }) {
         document.body.removeEventListener('click', addNoteByClick)
     }
 
+    function handleKeyDown(ev) {
+
+        if (ev.key === 'Enter') {
+            // if (!titleToAdd) return
+            addNoteByClick()
+        }
+    }
+
     function addNoteByClick() {
         if (!valueToAdd) return
         let isClicked = true
@@ -57,9 +65,14 @@ export function NoteTodos({ onRenderComp, onAddNote }) {
         onRenderComp('')
     }
 
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
+
     console.log(valueToAdd)
     return <section className="note-add-todos">
-        <form className="todos-wrap" >
+        <form className="todos-wrap"
+            onSubmit={handleSubmit}>
 
             <input type="text"
                 id="note-txt"
@@ -67,6 +80,7 @@ export function NoteTodos({ onRenderComp, onAddNote }) {
                 name="note-txt"
                 placeholder="Enter todos spread by ,"
                 onChange={getValue}
+                onKeyDown={handleKeyDown}
                 ref={inputEl}
             />
             <button type='button' className="img-close-btn" onClick={onCloseTxtNote}>Close</button>

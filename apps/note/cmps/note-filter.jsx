@@ -27,8 +27,8 @@ export function NoteHeader({ onSetFilter }) {
     }
 
     return <section className="note-filter">
-        <div className="menu-icon-wrap">
-        </div>
+        {/* <div className="menu-icon-wrap">
+        </div> */}
         <div className="header-img-wrap">
             <img className="header-img" src="./assets/img/google-keep.png"></img>
         </div>
