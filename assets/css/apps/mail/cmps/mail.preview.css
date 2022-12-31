@@ -200,9 +200,14 @@
 
 @media (max-width: 650px) {
 
-    .open-envelop,
-    .close-envelop,
-    .trash {
+    .mail-row .open-envelop,
+    .mail-row .close-envelop,
+    .mail-row .trash {
         display: none;
     }
+
+    .mail-row:hover .time {
+        opacity: 1;
+    }
+
 }
