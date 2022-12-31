@@ -1,5 +1,6 @@
 .home {
     font-family: roboto;
+    overflow-x: hidden;
 }
 
 .home .hero {
@@ -15,6 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+
 }
 
 .home-nav-container>* {
@@ -29,8 +32,8 @@
     background-size: cover;
     background-position: center center;
     position: relative;
-    height: 150px;
-    width: 200px;
+    height: 100px;
+    width: 130px;
 }
 
 .home .notes {
@@ -42,8 +45,8 @@
     background-size: cover;
     background-position: center center;
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
 
 .home .book-shop {
@@ -55,6 +58,10 @@
     background-size: cover;
     background-position: center center;
     position: relative;
+    height: 100px;
+    width: 140px;
+    margin: 0;
+
 }
 
 
@@ -68,35 +75,77 @@
     width: 20.4375rem;
     margin-inline: auto;
     margin-bottom: 10vh;
-
-
 }
 
 
-.google-img {
+.home-hero {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-    min-height: 100vh;
+    justify-content: center;
     max-height: 100vh;
 }
 
 .home-row1 {
     display: flex;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     align-items: center;
-    margin-inline: 10vw;
+    margin-bottom: 20px;
 }
 
-.google-img img {
-    width: 40%;
+.home-row1 img {
+    width: 19em;
+    margin-top: 20px;
 }
 
-.google-img h1 {
+.home-row1 h1 {
     font-size: 2rem;
-    max-width: 40%;
+    max-width: 50%;
     text-align: center;
     font-weight: 400;
+}
+
+.home-mail-container,
+.home-note-container,
+.home-book-container {
+    margin-inline: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.home button {
+    background-color: #ea4335;
+    color: white;
+    border-radius: 15px;
+    border: var(--mail-border-color);
+    width: 150px;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .home-row1 {
+        flex-direction: column;
+        margin-top: 100%;
+        margin-bottom: 200px;
+    }
+
+    .home-hero {}
+}
+
+
+@media (max-width: 400px) {
+    .home-row1 {
+        flex-direction: column;
+        margin-top: 180%;
+        margin-bottom: 200px;
+    }
+
+
 }
