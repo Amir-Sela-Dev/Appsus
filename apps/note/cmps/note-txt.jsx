@@ -4,7 +4,9 @@ const { useEffect, useState, useRef } = React
 
 export function NoteTxt({ onRenderComp, onAddNote }) {
     const inputEl = useRef()
+    const inputTitleEl = useRef()
     const [isHoverToolBar, setIsHoverToolBar] = useState(false)
+    let titleToAdd
     let valueToAdd
     addBodyEv()
 
@@ -20,16 +22,28 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
         valueToAdd = value
     }
 
+    function getValueTitle({ target }) {
+        let { value } = target
+        if (!value) return
+        titleToAdd = value
+    }
+
     function handleKeyDown(ev) {
-        console.log(ev.key)
+
+        if (ev.key === 'Enter') {
+            addNoteByClick()
+        }
+    }
+    function handleKeyDownText(ev) {
         if (ev.key === 'Enter') {
             addNoteByClick()
         }
     }
 
-    function addNote(txt) {
+    function addNote(title, txt) {
         const newNote = noteService.getEmptyNote()
-        newNote.info.txt = txt
+        if (txt) newNote.info.txt = txt
+        newNote.info.title = title
         noteService.save(newNote).then(onAddNote)
     }
 
@@ -43,12 +57,14 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
     }
 
     function addNoteByClick() {
-        if (!valueToAdd) return
+        if (!titleToAdd || !valueToAdd) return
         let isClicked = true
         if (isClicked) {
-            addNote(valueToAdd)
+            addNote(titleToAdd, valueToAdd)
             valueToAdd = ''
+            titleToAdd = ''
             inputEl.current.value = ''
+            inputTitleEl.current.value = ''
         }
         isClicked = false
     }
@@ -70,6 +86,15 @@ export function NoteTxt({ onRenderComp, onAddNote }) {
             onSubmit={handleSubmit}
         >
 
+            <input type="text"
+                id="note-txt-title"
+                className="note-txt-title-input"
+                name="note-txt-title"
+                placeholder="Title"
+                onChange={getValueTitle}
+                onKeyDown={handleKeyDown}
+                ref={inputTitleEl}
+            />
             <input type="text"
                 id="note-txt"
                 className="add-input txt-input"

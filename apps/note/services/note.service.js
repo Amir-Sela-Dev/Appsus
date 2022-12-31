@@ -86,6 +86,7 @@ function getEmptyNote() {
         type: "",
         isPinned: false,
         info: {
+            title: '',
             txt: ""
         },
         style: {

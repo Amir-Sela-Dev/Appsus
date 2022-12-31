@@ -9,6 +9,7 @@ import { NoteTxt } from "../cmps/note-txt.jsx";
 import { NoteImg } from "../cmps/note-img.jsx";
 import { NoteTodos } from "../cmps/note-todes.jsx";
 import { NoteVideo } from "../cmps/note-video.jsx";
+import { NoteListPinned } from "../cmps/note-list-pinned.jsx";
 
 export function NoteIndex() {
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
@@ -100,7 +101,14 @@ export function NoteIndex() {
             />}
 
             {/* {getCmpByType()} */}
-
+            <h3 className="pinned-title">PINNED</h3>
+            <NoteListPinned notes={notes}
+                onRemoveNote={onRemoveNote}
+                onPinnedNote={onPinnedNote}
+                onDeletTodo={onDeletTodo}
+                onToggleDone={onToggleDone}
+            />
+            <h3 className="others-title">OTHERS</h3>
             <NoteList notes={notes}
                 onRemoveNote={onRemoveNote}
                 onPinnedNote={onPinnedNote}

@@ -49,7 +49,15 @@
     color: #B0BEC5;
 }
 
+.note-txt-title-input::placeholder {
+    color: #B0BEC5;
+}
+
 .add-input:focus {
+    outline: none;
+}
+
+.note-txt-title-input:focus {
     outline: none;
 }
 
@@ -87,12 +95,14 @@
 }
 
 .video {
-    background: url(./img/add-note-canvas.svg);
+    background: url(./img/video.svg);
     Background-size: cover;
     background-position: 50% 50%;
     align-self: center;
     position: relative;
     right: 13rem;
+    height: 25px;
+    width: 25px;
 }
 
 .img {
