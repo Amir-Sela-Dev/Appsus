@@ -213,3 +213,7 @@
 iframe {
     width: 100%;
 }
+
+.todo-txt-inside-note {
+    font-size: 1rem;
+}

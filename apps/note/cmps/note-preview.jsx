@@ -70,7 +70,7 @@ export function NotePreview({ note, onRemoveNote, onPinnedNote, onDeletTodo, onT
                 <span
                     contentEditable
                     suppressContentEditableWarning={true}
-                    className={`${todo.doneAt ? 'todo-done' : ''}`}
+                    className={`todo-txt-inside-note ${todo.doneAt ? 'todo-done' : ''}`}
                     onBlur={(e) => getTodoFromBlur(e, todo.id, note.id)}>
                     {todo.txt}</span>
 
