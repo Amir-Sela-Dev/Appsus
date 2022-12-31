@@ -91,6 +91,16 @@
 
 }
 
+
+.mail-side-nav .logo {
+    padding: 0;
+    align-self: flex-start;
+    justify-self: center;
+    margin-top: 2vh;
+    display: none;
+}
+
+
 @media (max-width: 650px) {
     .mail-side-nav {
         position: fixed;
@@ -118,11 +128,12 @@
         pointer-events: auto;
     }
 
-    .nav-compose {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        z-index: 1000;
+    .mail-side-nav .nav-compose {
+        display: none;
+    }
+
+    .mail-side-nav .logo {
+        display: block;
     }
 
 }

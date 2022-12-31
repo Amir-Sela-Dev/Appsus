@@ -92,12 +92,9 @@ export function MailIndex() {
     }
 
     function toogleMenu() {
-        console.log('working!');
         setIsMenuOpen(!isMenuOpen)
-
     }
 
-    console.log('refresh');
     if (!mails) return <div>Loading...</div>
     return <section className="mail-index">
         {(isMenuOpen) && <div class="main-screen full" onClick={() => { toogleMenu() }}></div>}
@@ -106,8 +103,8 @@ export function MailIndex() {
         {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />}
         {(!isMailOpen) && <MailList mails={mails} onRemoveMail={onRemoveMail} onOpenMail={onOpenMail} />}
         {(isMailOpen) && <MailDetails onCloseMail={onCloseMail} onRemoveMail={onRemoveMail} />}
-        <div className="index-compose" onClick={() => { onToogleComposeMail() }}> <div className="compose icon"></div> Compose</div>
-
+        {(!mailId) && <div className="nav-compose index" onClick={() => { onToogleComposeMail() }}> <div className="compose icon"></div> Compose</div>
+        }
     </section>
 }
 

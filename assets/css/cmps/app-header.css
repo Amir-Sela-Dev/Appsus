@@ -41,7 +41,7 @@ nav a.active {
 
 .main-menu-bar {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.14);
@@ -94,4 +94,8 @@ nav a.active {
     height: 45px;
     width: 45px;
     margin: 20px;
+}
+
+.main-menu-bar.open {
+    display: flex;
 }

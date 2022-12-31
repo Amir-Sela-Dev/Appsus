@@ -58,5 +58,18 @@
         z-index: 101;
     }
 
+    .nav-compose.index {
+        position: fixed;
+        width: 100px;
+        height: 46px;
+        bottom: 1em;
+        right: 1em;
+        z-index: 100;
+        margin: 0;
+
+    }
+
+
+
 
 }
