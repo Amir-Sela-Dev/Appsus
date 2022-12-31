@@ -1,6 +1,7 @@
 .note-add {
     margin: 0 auto;
     max-width: 600px;
+    position: relative;
 }
 
 .todos-wrap {
@@ -85,6 +86,15 @@
     right: 13rem;
 }
 
+.video {
+    background: url(./img/add-note-canvas.svg);
+    Background-size: cover;
+    background-position: 50% 50%;
+    align-self: center;
+    position: relative;
+    right: 13rem;
+}
+
 .img {
     background: url(./img/add-note-img.svg);
     Background-size: cover;
@@ -99,6 +109,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+}
+
+.main {
+    margin-left: -46.5rem;
+    margin-top: 5rem;
 }
 
 .inline-block {
@@ -173,4 +188,18 @@
     position: relative;
     border: none;
     right: 101px;
+}
+
+.pin-txt {
+    position: relative;
+    display: inline-block;
+    margin-top: -10rem;
+}
+
+.tool-bar-main {
+    position: relative;
+}
+
+iframe {
+    width: 100%;
 }

@@ -104,7 +104,7 @@ function textToTodos(txt) {
     const newTodos = []
     console.log('BBBbb', newTodosTxt)
     newTodosTxt.map(todoTxt => {
-        console.log('CCCCCCCCCC',todoTxt)
+        console.log('CCCCCCCCCC', todoTxt)
         let newTodo = {
             id: utilService.makeId(),
             txt: todoTxt,
@@ -172,7 +172,8 @@ function createNotes() {
                 isPinned: false,
                 info: {
                     title: "Coding Academy",
-                    txt: "Amirs team"
+                    txt: "",
+                    videoUrl: '71Gt46aX9Z4'
                 },
                 style: {
                     backgroundColor: "#cbf0f8"

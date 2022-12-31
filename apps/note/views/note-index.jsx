@@ -8,7 +8,7 @@ import { NoteAdd } from "../cmps/note-add.jsx";
 import { NoteTxt } from "../cmps/note-txt.jsx";
 import { NoteImg } from "../cmps/note-img.jsx";
 import { NoteTodos } from "../cmps/note-todes.jsx";
-// import { NoteHeader } from "../cmps/note-header.jsx";
+import { NoteVideo } from "../cmps/note-video.jsx";
 
 export function NoteIndex() {
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
@@ -53,18 +53,12 @@ export function NoteIndex() {
 
     function onPinnedNote(noteId) {
         let noteToPin = notes.find(note => note.id === noteId)
-        console.log(noteToPin)
         noteToPin.isPinned = !noteToPin.isPinned
-        console.log('After', noteToPin)
         noteService.save(noteToPin).then(() => setPinNote(true))
     }
 
     function onRenderComp(type) {
         settype(type)
-    }
-
-    function onCreatTodo() {
-        console.log('Creat Todo')
     }
 
     function onDeletTodo(todoId, noteId) {
@@ -75,14 +69,6 @@ export function NoteIndex() {
     function onToggleDone(todoId, noteId) {
         noteService.todoToggleDone(todoId, noteId)
             .then(setToggleTodo)
-    }
-
-    function onCreatCanvas() {
-        console.log('Creat Canvas')
-    }
-
-    function onCreatImg(type) {
-        settype(type)
     }
 
     console.log(notes)
@@ -104,6 +90,11 @@ export function NoteIndex() {
             />}
 
             {type === 'todos' && <NoteTodos
+                onAddNote={onAddNote}
+                onRenderComp={onRenderComp}
+            />}
+
+            {type === 'video' && <NoteVideo
                 onAddNote={onAddNote}
                 onRenderComp={onRenderComp}
             />}
