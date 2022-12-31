@@ -16,7 +16,6 @@ export function MailPreview({ mail, onRemoveMail, onOpenMail }) {
                 mailService.save(mail)
                     .then(mail => {
                         mailService.save(mail)
-                        console.log(mail)
                         setIsStarred(mail.isStarred)
                     })
             })
@@ -48,7 +47,6 @@ export function MailPreview({ mail, onRemoveMail, onOpenMail }) {
         }
     }
 
-    console.log(mail.isRead);
 
     return <Fragment>
         <tr className={`mail-row flex ${(isRead) ? 'read' : 'unRead'}`} height="60px" >

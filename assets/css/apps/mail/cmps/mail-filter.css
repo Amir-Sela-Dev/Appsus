@@ -7,6 +7,7 @@
     border: var(--mail-border-color) solid 1px;
     display: flex;
     align-items: center;
+    z-index: 2;
 }
 
 .search-filter {
@@ -27,6 +28,7 @@
 .search {
     background-image: url("/assets/img/search.png");
     margin-inline: 8px;
+    margin-inline-start: 10px;
 
 }
 

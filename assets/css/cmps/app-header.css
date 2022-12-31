@@ -8,6 +8,7 @@ header {
     justify-content: space-between;
     padding: 5px 0;
     position: relative;
+    min-height: 73px;
 }
 
 nav a {

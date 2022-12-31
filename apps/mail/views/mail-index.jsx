@@ -29,7 +29,6 @@ export function MailIndex() {
 
     function loadMails() {
         mailService.query(filterBy).then(mailsToUpdate => {
-            console.log(mailsToUpdate);
             setMails(mailsToUpdate)
             setIsMailOpen(false)
         })
@@ -50,7 +49,6 @@ export function MailIndex() {
                     mailService.save(mail)
                         .then(mail => {
                             const updatedMails = mails.filter(mail => mail.id !== mailId)
-                            console.log(updatedMails);
                             setMails(updatedMails)
                             showSuccessMsg('mail removed!')
                             onCloseMail()
@@ -66,14 +64,12 @@ export function MailIndex() {
 
 
     function onSetFilterBy(field, value) {
-        console.log('hi filter');
         setFilterBy((prevFilter) => {
             return { ...prevFilter, [field]: value }
         })
     }
 
     function onTxtSetFilterBy(field, value) {
-        console.log('hi txt filter');
         setFilterBy((prevFilter) => {
             return { ...prevFilter, [field]: value }
         })

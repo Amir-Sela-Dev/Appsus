@@ -12,18 +12,15 @@ export function MailCompose({ onToogleComposeMail }) {
 
     function handleChange({ target }) {
         let { value, name: field } = target
-        console.log(value, field)
 
         setMailToEdit((prevMail) => ({ ...prevMail, [field]: value }))
         setMailToEdit((prevMail) => ({ ...prevMail, ['sentAt']: Date.now() }))
-        console.log(mailToEdit)
 
     }
 
     function onSendMail(ev) {
         ev.preventDefault()
         mailService.save(mailToEdit).then((mail) => {
-            console.log(mailToEdit)
             showSuccessMsg('Book saved!')
             onToogleComposeMail()
         })

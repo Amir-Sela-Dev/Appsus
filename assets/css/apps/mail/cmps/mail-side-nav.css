@@ -2,7 +2,7 @@
     background-color: var(--main-header-color);
     display: flex;
     flex-direction: column;
-    /* position: fixed; */
+    position: fixed;
 
 }
 

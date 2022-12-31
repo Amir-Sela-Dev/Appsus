@@ -27,6 +27,10 @@
     grid-area: mail-list;
 }
 
+.mail-details {
+    grid-area: mail-list;
+}
+
 .nav-compose.index {
     display: none;
 }

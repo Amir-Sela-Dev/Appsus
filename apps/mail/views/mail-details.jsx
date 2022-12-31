@@ -70,7 +70,6 @@ export function MailDetails({ onCloseMail, onRemoveMail }) {
 
 
 
-    console.log('render from details');
 
 
 
