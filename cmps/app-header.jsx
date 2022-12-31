@@ -7,10 +7,13 @@ export function AppHeader() {
             <img className="logo" src="/assets/img/logo.svg" />
         </Link>
         <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/mail">Mail</NavLink>
-            <NavLink to="/note">Note</NavLink>
+            <div className="main-menu-btn"></div>
+            <div className="main-menu-bar">
+                <NavLink className="main-menu-home-icon" to="/"></NavLink>
+                <NavLink className="main-menu-mail-icon" to="/mail"></NavLink>
+                <NavLink className="main-menu-note-icon" to="/note"></NavLink>
+                <NavLink className="main-menu-about-icon" to="/about"></NavLink>
+            </div>
         </nav>
     </header>
 }
