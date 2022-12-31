@@ -3,7 +3,7 @@ const { useState, useEffect } = React
 import { mailService } from '../services/mail.service.js';
 
 
-export function SideNav({ onSetFilterBy, onToogleComposeMail, onCloseMail }) {
+export function SideNav({ onSetFilterBy, onToogleComposeMail, onCloseMail, isMenuOpen, toogleMenu }) {
     const [isClicked, setIsClicked] = useState('inbox')
 
 
@@ -16,7 +16,7 @@ export function SideNav({ onSetFilterBy, onToogleComposeMail, onCloseMail }) {
 
 
 
-    return <section className="mail-side-nav">
+    return <section className={`mail-side-nav ${(isMenuOpen) ? "menu-open" : ''}`} onClick={() => { toogleMenu() }} >
 
         <div className="nav-compose" onClick={() => { onToogleComposeMail() }}> <div className="compose icon"></div> Compose</div>
         <div className="nav-list" >

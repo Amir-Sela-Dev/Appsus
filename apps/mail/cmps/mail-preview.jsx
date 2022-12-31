@@ -1,5 +1,4 @@
 const { useState, useEffect, Fragment } = React
-const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { mailService } from '../services/mail.service.js';
 
@@ -7,7 +6,6 @@ import { mailService } from '../services/mail.service.js';
 export function MailPreview({ mail, onRemoveMail, onOpenMail }) {
     const [isStarred, setIsStarred] = useState(mail.isStarred)
     const [isRead, setIsRead] = useState(mail.isRead)
-    const navigate = useNavigate()
 
 
 
@@ -49,6 +47,8 @@ export function MailPreview({ mail, onRemoveMail, onOpenMail }) {
             return strTime;
         }
     }
+
+    console.log(mail.isRead);
 
     return <Fragment>
         <tr className={`mail-row flex ${(isRead) ? 'read' : 'unRead'}`} height="60px" >

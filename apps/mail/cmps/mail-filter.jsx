@@ -2,7 +2,7 @@ const { useState, useEffect } = React
 
 import { mailService } from '../services/mail.service.js';
 
-export function MailFilter({ onTxtSetFilterBy, filterBy }) {
+export function MailFilter({ onTxtSetFilterBy, filterBy, toogleMenu }) {
 
 
     function handleChange({ target }) {
@@ -18,6 +18,7 @@ export function MailFilter({ onTxtSetFilterBy, filterBy }) {
 
     return <section className="mail-filter">
         <div className="search icon"></div>
+        <div className="menu-toogle-btn" onClick={toogleMenu}>☰</div>
         <form onSubmit={onSubmitFilter}>
             <input type="text" className="search-filter"
                 id="txt"
@@ -25,7 +26,6 @@ export function MailFilter({ onTxtSetFilterBy, filterBy }) {
                 placeholder="Search mail"
                 value={filterBy.txt}
                 onChange={handleChange}
-
             />
         </form>
     </section>

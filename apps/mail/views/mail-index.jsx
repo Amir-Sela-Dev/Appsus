@@ -17,19 +17,21 @@ export function MailIndex() {
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCompose, setIsCompose] = useState(false)
     const [isMailOpen, setIsMailOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
     const navigate = useNavigate()
     const { mailId } = useParams()
 
 
     useEffect(() => {
         if (mailId) onOpenMail(mailId)
-        loadMails()
-    }, [filterBy, isCompose, mailId])
+        else loadMails()
+    }, [filterBy, isCompose, mailId, isMenuOpen])
 
     function loadMails() {
-        console.log('filterby from load', filterBy);
         mailService.query(filterBy).then(mailsToUpdate => {
+            console.log(mailsToUpdate);
             setMails(mailsToUpdate)
+            setIsMailOpen(false)
         })
     }
 
@@ -81,23 +83,29 @@ export function MailIndex() {
         setIsCompose(!isCompose)
     }
     function onCloseMail() {
-        setIsMailOpen(false)
         navigate('/mail/mailList')
     }
 
     function onOpenMail(mailId) {
-        setIsMailOpen(true)
+        setIsMailOpen(!isMenuOpen)
         navigate(`/mail/${mailId}`)
     }
 
-    return <section className="mail-index">
+    function toogleMenu() {
+        console.log('working!');
+        setIsMenuOpen(!isMenuOpen)
 
-        <SideNav onSetFilterBy={onSetFilterBy} onToogleComposeMail={onToogleComposeMail} filterBy={filterBy} onCloseMail={onCloseMail} />
-        <MailFilter onTxtSetFilterBy={onTxtSetFilterBy} filterBy={filterBy} />
+    }
+
+    console.log('refresh');
+    if (!mails) return <div>Loading...</div>
+    return <section className="mail-index">
+        {(isMenuOpen) && <div class="main-screen full" onClick={() => { toogleMenu() }}></div>}
+        <SideNav onSetFilterBy={onSetFilterBy} onToogleComposeMail={onToogleComposeMail} filterBy={filterBy} onCloseMail={onCloseMail} isMenuOpen={isMenuOpen} toogleMenu={toogleMenu} />
+        <MailFilter onTxtSetFilterBy={onTxtSetFilterBy} filterBy={filterBy} toogleMenu={toogleMenu} />
         {(isCompose) && <MailCompose onToogleComposeMail={onToogleComposeMail} />}
         {(!isMailOpen) && <MailList mails={mails} onRemoveMail={onRemoveMail} onOpenMail={onOpenMail} />}
         {(isMailOpen) && <MailDetails onCloseMail={onCloseMail} onRemoveMail={onRemoveMail} />}
-
     </section>
 }
 
