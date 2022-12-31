@@ -217,3 +217,39 @@ iframe {
 .todo-txt-inside-note {
     font-size: 1rem;
 }
+
+@media (max-width: 930px) {
+    .add-input {
+        width: 400px;
+    }
+}
+
+@media (max-width: 715px) {
+    .add-input {
+        width: 300px;
+    }
+
+    .search-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .todo {
+        right: 12rem;
+    }
+
+    .video {
+        right: 11rem;
+    }
+
+    .img {
+        right: 10rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .add-input {
+        margin-left: -0.1rem
+    }
+}

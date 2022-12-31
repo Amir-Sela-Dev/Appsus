@@ -98,3 +98,38 @@ hr {
     margin: 5px;
     cursor: pointer;
 }
+
+@media (max-width: 930px) {
+    .search-input {
+        width: 400px;
+    }
+}
+
+@media (max-width: 880px) {
+    .header-title {
+        display: none;
+    }
+
+    .header-img {
+        display: none;
+    }
+}
+
+@media (max-width: 715px) {
+    .search-wrap {
+        width: 300px;
+        margin: 0;
+    }
+
+    .search-input {
+        width: 300px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .search-input {
+
+        margin-left: -4.3rem;
+    }
+}
