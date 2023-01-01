@@ -25,7 +25,7 @@ export function About() {
         </div> */}
         <div className="profiles-wrap">
             <div className="card-amir-yakubov">
-                <img className="profile-img-yakubov" src="/assets/img/amir-sela.jpg" />
+                <img className="profile-img-yakubov" src="./assets/img/amir-sela.jpg" />
                 <h2 className="card-full-name">Amir sela</h2>
                 <p className="card-text"> My name is Amir Sela, I'm 23 years old and I'm a junior web
                     developer.
@@ -37,22 +37,22 @@ export function About() {
                     When I came back I decided to start learning web developing with Coding-Academy.</p>
 
                 <div className="card-links">
-                    <img className="card-link facebook-link" src="/assets/img/facebook.png" />
-                    <img className="card-link linkdin-link" src="/assets/img/linkedin.png" />
-                    <img className="card-link github-link" src="/assets/img/github.png" />
+                    <img className="card-link facebook-link" src="./assets/img/facebook.png" />
+                    <img className="card-link linkdin-link" src="./assets/img/linkedin.png" />
+                    <img className="card-link github-link" src="./assets/img/github.png" />
                 </div>
             </div>
 
             <div className="card-amir-yakubov">
-                <img className="profile-img-yakubov" src="/assets/img/amir-yakubov.jpg" />
+                <img className="profile-img-yakubov" src="./assets/img/amir-yakubov.jpg" />
                 <h2 className="card-full-name">Amir Yakubov</h2>
                 <p className="card-text"> Amir yakubov, 29 years old from Ahkelon, married to Alina and father of Adel. Insurance agent in the past 3 years
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure laboriosam consequuntur vero, temporibus, sit voluptatum delectus accusantium nostrum ipsum modi impedit. Aliquam provident et excepturi, fuga odit sint nemo, in eos nisi laboriosam mollitia a voluptatem nostrum quibusdam dolorum consequuntur.</p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure laboriosam consequuntur vero, temporibus, sit voluptatum delectus accusantium nostrum ipsum modi impedit. Aliquam provident et excepturi, fuga odit sint nemo, in eos nisi laboriosam mollitia a voluptatem nostrum quibusdam dolorum consequuntur.</p>
 
                 <div className="card-links">
-                    <img className="card-link facebook-link" src="/assets/img/facebook.png" />
-                    <img className="card-link linkdin-link" src="/assets/img/linkedin.png" />
-                    <img className="card-link github-link" src="/assets/img/github.png" />
+                    <img className="card-link facebook-link" src="./assets/img/facebook.png" />
+                    <img className="card-link linkdin-link" src="./assets/img/linkedin.png" />
+                    <img className="card-link github-link" src="./assets/img/github.png" />
                 </div>
             </div>
         </div>
