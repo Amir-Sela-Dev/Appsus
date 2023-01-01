@@ -64,28 +64,28 @@
 }
 
 .starred {
-    background-image: url("./assets/img/starred.png");
+    background-image: url("/assets/img/starred.png");
 }
 
 
 .unStarred {
-    background-image: url("./assets/img/unstarred.png");
+    background-image: url("/assets/img/unstarred.png");
 }
 
 .trash {
-    background-image: url("./assets/img/trash.png");
+    background-image: url("/assets/img/trash.png");
     opacity: 0;
 }
 
 .close-envelop {
-    background-image: url("./assets/img/close-envelop.png");
+    background-image: url("/assets/img/close-envelop.png");
     opacity: 0;
     background-color: white;
 
 }
 
 .open-envelop {
-    background-image: url("./assets/img/open-envelop.png");
+    background-image: url("/assets/img/open-envelop.png");
     opacity: 0;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .mail-user-icon {
-    background-image: url("./assets/img/user.png");
+    background-image: url("/assets/img/user.png");
     width: 35px;
     height: 35px;
     grid-column: 1/1;
