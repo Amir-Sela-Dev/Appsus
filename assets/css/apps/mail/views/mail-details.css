@@ -23,7 +23,7 @@
 }
 
 .go-back {
-    background-image: url("/assets/img/left-arrow.png");
+    background-image: url(./views-imgs/left-arrow.png);
     grid-column: 1/1;
     grid-row: 1/1;
     justify-self: center;
@@ -89,7 +89,7 @@
 }
 
 .user-icon {
-    background-image: url("/assets/img/user.png");
+    background-image: url(./views-imgs/user.png);
     width: 40px;
     height: 40px;
     grid-column: 1/2;

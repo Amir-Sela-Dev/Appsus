@@ -37,7 +37,7 @@
 }
 
 .inbox {
-    background-image: url("/assets/img/inbox.png");
+    background-image: url(./img/inbox.png);
     margin-inline-end: 20px;
 }
 
@@ -46,18 +46,18 @@
 }
 
 .sent {
-    background-image: url("/assets/img/sent.png");
+    background-image: url(./img/sent.png);
     margin-inline-end: 20px;
 }
 
 .black-trash {
-    background-image: url("/assets/img/black-trash.png");
+    background-image: url(./img/black-trash.png);
     margin-inline-end: 20px;
 
 }
 
 .draft {
-    background-image: url("/assets/img/draft.png");
+    background-image: url(./img/draft.png);
     margin-inline-end: 20px;
 
 }
@@ -82,7 +82,7 @@
 }
 
 .compose {
-    background-image: url("/assets/img/compose.png");
+    background-image: url(./img/compose.png);
     margin-inline-end: 20px;
 }
 
