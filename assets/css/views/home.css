@@ -5,7 +5,7 @@
 
 .home .hero {
     height: 23.4375rem;
-    background-image: url(assets/img/home-hero.jpg);
+    /* background-image: url(assets/img/home-hero.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
 
 .home-nav-container>* {
