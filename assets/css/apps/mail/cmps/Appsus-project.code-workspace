@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"path": "../../../../../../../Dropbox/CaNov22-ExcerciseSubmission/Amir Sela/Day37-Framework4/EX-missBooks"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5503,
+		"liveServer.settings.multiRootWorkspaceName": "Appsus-project"
+	}
+}
