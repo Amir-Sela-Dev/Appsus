@@ -5,7 +5,7 @@
 
 .home .hero {
     height: 23.4375rem;
-    background-image: url("/assets/img/home-hero.jpg");
+    background-image: url(assets/img/home-hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -31,7 +31,7 @@
 .home .mail {
     height: 10.4375rem;
     width: 14.4375rem;
-    background-image: url("/assets/img/gmain.svg");
+    background-image: url(assets/img/gmain.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -44,7 +44,7 @@
     height: 8.4375rem;
     width: 8.4375rem;
 
-    background-image: url("/assets/img/keep.svg");
+    background-image: url(assets/img/keep.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -57,7 +57,7 @@
     height: 10.4375rem;
     width: 10.4375rem;
 
-    background-image: url("/assets/img/books.png");
+    background-image: url(assets/img/books.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -70,7 +70,7 @@
 
 
 .home .hero-img {
-    background-image: url("/assets/img/google-people.png");
+    background-image: url(assets/img/google-people.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
