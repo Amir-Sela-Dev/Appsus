@@ -7,7 +7,7 @@ export function Home() {
         <div className="home-hero">
 
             <div className="home-row1">
-                <h1>The app that help you orgenize your life.</h1>
+                <h1>The app that helps you organize your life.</h1>
 
                 <div className="google-assistent animate__animated animate__fadeInRight">
                     <img src="assets/img/google-assistant.svg" alt="" /></div>
