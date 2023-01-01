@@ -64,12 +64,12 @@
 }
 
 .starred {
-    background-image: url(./assets/img/starred.png);
+    background-image: url(./img/starred.png);
 }
 
 
 .unStarred {
-    background-image: url(./assets/img/unstarred.png);
+    background-image: url(./img/unstarred.png);
 }
 
 .trash {
