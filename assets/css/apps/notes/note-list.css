@@ -205,9 +205,19 @@ body {
 
 }
 
+@media (max-width: 930px) {
+    .note-txt-title-input {
+        width: 400px
+    }
+}
+
 @media (max-width: 715px) {
     .main-layout {
         margin: 0 10px
+    }
+
+    .note-txt-title-input {
+        width: 200px
     }
 
 }
@@ -217,8 +227,13 @@ body {
         width: 42vw;
     }
 
-    .note-list{
+    .note-list {
         font-size: 0.7rem;
+    }
+
+
+    .note-txt-title-input {
+        width: 200px
     }
 
 }

@@ -35,6 +35,7 @@
 @import './apps/mail/cmps/mail-list.css';
 /* notes */
 
+@import './apps/notes/note-index.css';
 @import './apps/notes/main-notes.css';
 @import './apps/notes/note-list.css';
 @import './apps/notes/note-filter.css';
