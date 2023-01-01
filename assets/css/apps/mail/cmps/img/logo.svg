@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="499" height="174" viewBox="0 0 499 174">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        font-size: 150px;
+        text-anchor: middle;
+        font-family: Roboto;
+        font-weight: 500;
+      }
+
+      .cls-1 {
+        fill: #3784f4;
+      }
+
+      .cls-2 {
+        fill: #f1453a;
+      }
+
+      .cls-3 {
+        fill: #ffbe32;
+      }
+
+      .cls-4 {
+        fill: #1eaa5b;
+      }
+    </style>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard 1">
+    <text id="A" class="cls-1" x="67.5" y="127.5">A</text>
+    <text id="p" class="cls-2" x="152.5" y="127.5">p</text>
+    <text id="p-2" class="cls-3" x="225.501" y="127.5">p</text>
+    <text id="s" class="cls-1" x="297.5" y="126.5">s</text>
+    <text id="u" class="cls-4" x="369.5" y="128.5">u</text>
+    <text id="s-2" class="cls-2" x="440.499" y="127.5">s</text>
+  </g>
+</svg>

@@ -17,7 +17,7 @@ export function SideNav({ onSetFilterBy, onToogleComposeMail, onCloseMail, isMen
 
 
     return <section className={`mail-side-nav ${(isMenuOpen) ? "menu-open" : ''}`} onClick={() => { toogleMenu() }} >
-        <div className="logo"><img className="logo" src="/assets/img/logo.svg" /><hr /></div>
+        <div className="logo"><img className="logo" src="../../../assets/css/apps/mail/cmps/img/logo.svg" /><hr /></div>
 
         <div className="nav-compose" onClick={() => { onToogleComposeMail() }}> <div className="compose icon"></div> Compose</div>
         <div className="nav-list" >
