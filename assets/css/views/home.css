@@ -12,12 +12,16 @@
     position: relative;
 }
 
+.google-assistent {
+    animation-duration: 2s;
+}
+
 .home-nav-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
+    animation-duration: 2s;
 }
 
 .home-nav-container>* {

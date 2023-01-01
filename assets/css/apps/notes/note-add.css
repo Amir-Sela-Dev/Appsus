@@ -74,6 +74,7 @@
 .add-wrap {
     display: flex;
     width: 850px;
+    overflow: hidden;
 }
 
 .todo {
@@ -222,12 +223,20 @@ iframe {
     .add-input {
         width: 400px;
     }
+
+    .add-wrap {
+        width: 600px;
+    }
 }
 
 @media (max-width: 715px) {
     .add-input {
         width: 300px;
     }
+
+    /* .add-wrap {
+        width: 500px;
+    } */
 
     .search-icon {
         display: none;
@@ -245,6 +254,16 @@ iframe {
 
     .img {
         right: 10rem;
+    }
+
+    .todos-wrap {
+        margin: 0;
+        width: 400px;
+    }
+
+    .note-add-todos-input {
+        margin: 0;
+        width: 400px;
     }
 }
 

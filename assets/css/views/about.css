@@ -1,22 +1,26 @@
-.about {
+/* .about {
     background-color: #faebd7;
     height: 100%;
     min-height: 100vh;
     flex-direction: column;
     align-items: center;
+} */
+
+.about {
+    font-family: Product;
 }
 
 .about h1 {
-    font-size: 30px;
+    font-size: 40px;
     margin-block: 30px;
 }
 
 .amir-sela {
     width: 80vw;
-    border: var(--mail-border-color) solid 3px;
     padding: 20px;
     justify-content: space-around;
     align-items: center;
+    border: var(--mail-border-color) solid 3px;
 }
 
 .amir-sela .body {
@@ -48,6 +52,60 @@
     cursor: pointer;
 }
 
+/* ///////////////////////////// */
+
+.about-main-title {
+    text-align: center;
+}
+
+.profiles-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-amir-yakubov {
+    width: 450px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.134);
+    box-shadow: 0 0 10px #00000021;
+    border-radius: 1rem;
+    margin: 2rem;
+}
+
+.card-full-name {
+    margin: 0;
+    padding: 1rem 2rem;
+}
+
+.profile-img-yakubov {
+    display: block;
+    margin: 0 auto;
+    height: 250px;
+    width: 250px;
+    padding: 1rem 2rem;
+    border-radius: 50%;
+}
+
+.card-text {
+    margin: 0;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.card-links {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 1rem 2rem;
+}
+
+.card-link {
+    padding-right: 1rem;
+}
+
+
 
 @media (max-width: 650px) {
     .amir-sela {
@@ -56,6 +114,11 @@
 
     .amir-sela .title {
         text-align: center;
+    }
+
+    .card-amir-yakubov {
+        width: 95vw;
+        margin: 0;
     }
 
 }
