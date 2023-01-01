@@ -31,7 +31,7 @@ nav a.active {
 }
 
 .main-menu-btn {
-    background: url(/assets/img/menu-btn.svg);
+    background: url(assets/img/menu-btn.svg);
     Background-size: cover;
     background-position: 50% 50%;
     position: relative;
@@ -58,7 +58,7 @@ nav a.active {
 }
 
 .main-menu-note-icon {
-    background: url(/assets/img/keep.svg);
+    background: url(assets/img/keep.svg);
     Background-size: cover;
     background-position: 50% 50%;
     position: relative;
@@ -68,7 +68,7 @@ nav a.active {
 }
 
 .main-menu-mail-icon {
-    background: url(/assets/img/gmain.svg);
+    background: url(assets/img/gmain.svg);
     Background-size: cover;
     background-position: 50% 50%;
     position: relative;
@@ -78,7 +78,7 @@ nav a.active {
 }
 
 .main-menu-about-icon {
-    background: url(/assets/img/about.svg);
+    background: url(assets/img/about.svg);
     Background-size: cover;
     background-position: 50% 50%;
     position: relative;
@@ -88,7 +88,7 @@ nav a.active {
 }
 
 .main-menu-home-icon {
-    background: url(/assets/img/google-home.svg);
+    background: url(assets/img/google-home.svg);
     Background-size: cover;
     background-position: 50% 50%;
     position: relative;
