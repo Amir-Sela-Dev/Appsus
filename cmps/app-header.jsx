@@ -7,7 +7,7 @@ export function AppHeader() {
 
     return <header className="app-header">
         <Link to="/">
-            <img className="logo" src="assets/img/logo.svg" />
+            <img className="logo" src="assets/img/logo.svg" alt="" />
         </Link>
         <nav>
             <div className="main-menu-btn" onClick={() => { setIsMainNavOpen(!isMainNavOpen) }}></div>

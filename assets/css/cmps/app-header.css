@@ -31,7 +31,7 @@ nav a.active {
 }
 
 .main-menu-btn {
-    background: url(assets/img/menu-btn.svg);
+    background: url(/assets/img/menu-btn.svg);
     Background-size: cover;
     background-position: 50% 50%;
     position: relative;
