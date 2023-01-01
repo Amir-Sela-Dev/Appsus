@@ -10,7 +10,7 @@ export function Home() {
                 <h1>The app that help you orgenize your life.</h1>
 
                 <div className="google-assistent animate__animated animate__fadeInRight">
-                    <img src="/assets/img/google-assistant.svg" alt="" /></div>
+                    <img src="assets/img/google-assistant.svg" alt="" /></div>
             </div>
 
             <div className="home-nav-container animate__animated animate__bounceInUp">
